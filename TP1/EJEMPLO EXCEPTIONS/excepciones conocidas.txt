@@ -1,0 +1,21 @@
+Constraint_Error: se presenta cuando hay un error
+aritmético (por ejemplo, división por cero) o el
+resultado de un cálculo está fuera de rango para
+la variable a la que es asignado o se exceden los
+límites de un arreglo.
+
+Program_Error: se produce por una variedad de
+situaciones, por ejemplo, una función que
+termina sin retornar un valor.
+
+Storage_Error: se plantea cuando se requiere más
+memoria que la disponible.
+
+Name_Error: se produce cuando se intenta abrir
+un archivo que no existe.
+
+Data_Error: se produce cuando se ingresa un
+dato no consistente con su tipo.
+
+
+
