@@ -10,7 +10,7 @@ use Ada.Integer_Text_Io, Ada.Text_IO;
 
 
 procedure Tp2ej7 is
-  
+  --¿puedo crear un tipo y luego cambiarlo desde aca para que se cambie en todos lados?
    Dimvector:Integer:=5; 
    tamaniopila:integer:=3;
 
@@ -66,14 +66,44 @@ procedure Tp2ej7 is
             Put(Elem);
          end if;
       end loop;
-      end solocabezasimpares;
+   end Solocabezasimpares;
+   
+      
+      
+   
+   procedure Sumapilaspospares (Vec: in Tarreglo) is
+      Pilaux:Tpila3;
+      Elem, sum:Integer;
+   begin
+      for I in Tindex'range loop
+         Pilaux:=Vec(I);
+         sum:=0;
+         if I mod 2=0 then
+            while not vacia(pilaux) loop
+            Sacar(Pilaux, Elem);
+            Sum:=Sum+Elem;
+            end Loop;
+               Put(Sum);
+         end if;
+      end loop;
+   end Sumapilaspospares;
+      
+           
+               
       
               
 begin
    Put_line("ingrese los " & Integer'Image(Dimvector*Tamaniopila) & " elementos del vector de pilas");
    
    Leer(Vpila);
+   
+   Put_Line("el/los elemento/s de la cabeza de la/s pila/s de la/s posicion/es impar/es es/son: ");
+   
    Solocabezasimpares(Vpila);
+   new_line;
+   
+   put_line("la/s sumatoria/s de la/s pila/s de la/s posicion/es par/es del vector es/son: ");
+   sumapilaspospares(vpila);
    
    
    
