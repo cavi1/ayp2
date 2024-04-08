@@ -105,6 +105,10 @@ begin
    put_line("la/s sumatoria/s de la/s pila/s de la/s posicion/es par/es del vector es/son: ");
    sumapilaspospares(vpila);
    
+exception
+   when Data_Error => begin
+         Put("error dato"); end;
+         
    
    
    
