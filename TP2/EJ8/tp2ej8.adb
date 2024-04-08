@@ -1,6 +1,6 @@
 --hacer una pila de vectores de 5 elementos
 --a) obtener la sumatoria de las componentes del vector de la cabeza de la pila
---b) obtener La posición del vector dentro de la pila, cuya sumatoria es mayor. (al finalizar el algoritmo la pila debe quedar sin modificaciones) 
+--b) obtener La posiciÃ³n del vector dentro de la pila, cuya sumatoria es mayor. (al finalizar el algoritmo la pila debe quedar sin modificaciones) 
 --es decir cual de todos los elementos de la pila tiene la mayor sumatoria
 
 with Pila, Vecunipaqbas, Ada.Integer_Text_Io, ada.Text_IO;
@@ -94,7 +94,7 @@ begin
    Put(Resu);
    New_Line;
    Put_Line("la posicion en la pila del vector al que corresponde la sumatoria mas grande es: ");
-   summayor:=comparasumatorias(pilavectores);
+   summayor:=comparasumatorias(pilavectores); --punto b)
    Put(tamaniopila-summayor);
       
 
