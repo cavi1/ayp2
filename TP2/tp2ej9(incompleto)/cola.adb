@@ -7,9 +7,9 @@ package body Cola is
          raise Overflow;
       end if;
       
-      if Cola.Final=Cola.Max then--¿quien es cola.max??
+      if Cola.Final=Cola.Max then--Â¿quien es cola.max??
 
-         cola.frente:=1; 
+         cola.final:=1; 
       else Cola.Final:=Cola.Final+1;
       end if;
       
@@ -54,7 +54,7 @@ package body Cola is
    
    procedure Limpiar(Cola: in out Tcola) is
    begin
-      Cola.Frente:=Cola.Final;-- hace cola.frente:=cola.max cola.final:=cola.max ¿no es lo mismo?
+      Cola.Frente:=Cola.Final;-- hace cola.frente:=cola.max cola.final:=cola.max Â¿no es lo mismo?
    end Limpiar;
    
 end cola;
