@@ -1,0 +1,67 @@
+with Ada.Integer_Text_Io, Ada.Text_Io, Cola;
+use Ada.Integer_Text_Io, Ada.Text_Io;
+
+procedure Punto6 is
+   
+   package Colaint is new Cola (Integer);
+   use Colaint;
+   subtype Cola7 is Tcola(8);
+   
+   type Tvector is array (1..7) of Integer;
+
+   
+   procedure Crearcola (cola: in out Cola7) is
+      x: integer;
+   begin
+      for I in 1.. 7 loop
+         Put(" ingrese el numero que va a ir en la " &Integer'Image(I)& " de la pila: ");
+         Get (X);
+         Skip_Line;
+         Put (" insertando... ");
+         New_Line;
+         Insertar (Cola, X);
+      end loop;
+   end Crearcola;
+   
+
+   procedure SacarImpar (Cola: in out Cola7) is 
+      X,Cont: Integer;
+   begin
+      Cont:=0;
+      Put (" a continuacion se mostraran los elementos impares de la pila ");
+      for I in 1..7 loop -- como hago para no usar numero ahi, hacerlo generico? lo mismo para el punto3
+         Suprimir (Cola, X);
+         if X rem 2 /= 0 then
+            Put (X);
+            Insertar(Cola,X);
+            Cont:= Cont+1;
+         end if;
+         Insertar(Cola,X);
+      end loop;
+      if Cont= 0 then
+         put ("no hay elementos impares :  
+   end SacarImpar;
+   
+   procedure Impresion (Vec: in Tvector; dim: in integer) is
+   begin
+      Put (" los numeros impares de la pila son: ");
+      for I in 1..dim loop
+         Put(Vec(I));
+      end loop;
+   end Impresion;
+   
+   Colaenteros: Cola7;
+   Vec: Tvector;
+   Dim: Integer;
+               
+begin
+   Crearcola (Colaenteros);
+   Sacarimpar (Colaenteros);
+   --if Dim > 0 then
+      --Impresion (Vec,Dim);
+   --else
+      --Put (" no hay elementos impares en la pila :( ");
+   --end if;
+end Punto6;
+   
+    

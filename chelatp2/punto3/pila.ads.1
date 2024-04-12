@@ -1,0 +1,25 @@
+generic
+   type Tdato is private;
+   
+
+   package Pila is
+      
+      type Tpila (Max: Positive) is private;
+      Underflow, Overflow: exception;
+      procedure Limpiar (Pila: in out Tpila);
+      function Vacia (Pila: Tpila) return Boolean;
+      function Llena (Pila: Tpila) return Boolean;
+      procedure Meter (Pila: in out Tpila; Nuevoelemento: in Tdato);
+      procedure Sacar (Pila: in out Tpila; Elementosacado: out Tdato);
+      procedure Imprimirpila (Pila: in Tpila);
+      
+      private
+      type Arreglopila is array (Positive range <>) of Tdato;
+      type Tpila (Max:Positive) is 
+      record
+         Cabeza: Natural:= 0;
+         Elementos: Arreglopila (1..Max);
+      end record;
+   end Pila;
+   
+      

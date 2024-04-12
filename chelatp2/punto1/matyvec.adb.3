@@ -1,0 +1,163 @@
+package body Matyvec is
+   
+   function Dimvec (X,Y: Tindice) return Boolean is
+   begin
+      return X=Y;
+   end Dimvec;
+   
+   function Dimvecmat (X: Tindice; Y: Columna) return Boolean is
+   begin
+      return X=Y;
+   end Dimvecmat;
+   
+   
+   
+   procedure Vecsuma (V1,V2: in Tvector; Vresu: out Tvector) is
+      Dim1,Dim2: Tindice;
+   begin
+      Dim1:= Tindice'Last;
+      Dim2:= Tindice'Last;
+      if Dimvec (Dim1, Dim2) then
+         for I in Tindice'First.. Tindice'Last loop
+            Vresu(I) := V1(I)+V2(I);
+         end loop;
+      else
+         raise Constraint_Error;
+      end if;
+   end Vecsuma;
+     
+   procedure Vecprod (V1,V2: in Tvector; Vresu: out Tvector) is
+      D1,D2: Tindice;
+   begin
+      D1:= Tindice'Last;      D2:= Tindice'Last;
+      if Dimvec (D1,D2) then
+         for I in Tindice'First..Tindice'Last loop
+            Vresu(I) := V1(I)*V2(I);
+         end loop;
+      else
+         raise Constraint_Error;
+      end if;   end Vecprod;
+   
+   procedure Vecmatprod (V:in Tvector; M:in Tmatriz; Vresu: out Tvecmat) is
+      Marca: Boolean;
+      I, d1: Tindice;
+      J, d2: Columna;
+      K, klast: Fila;
+   begin
+      D1:= Tindice'Last;
+      D2:= Columna'Last;
+      if Dimvecmat (D1,D2) then
+         I:= Tindice'First;
+         J:= Columna'First;
+         K:= Fila'First; 
+         Klast:= Fila'Last;
+         Marca:= True;
+         while Marca loop
+            Vresu(K):= Vresu(K) + (M(K,J) * V(I));
+            I:= Tindice'Succ(I);
+            J:= Columna'Succ(J);
+            if I = D1 then
+               I:=Tindice'First;
+               J:=Columna'First;
+               K:= Fila'Succ(K);
+            end if;
+            if K > Klast then
+               Marca:= False;
+            end if;
+         end loop;
+      else
+         raise Constraint_Error;
+      end if;
+   end Vecmatprod;
+   
+   function Matprom (M: tmatriz) return Tdato is
+      Cont: Integer;
+      Acumulador: Tdato;
+   begin
+      Cont:= 0;
+      
+      for I in Fila'First..Fila'Last loop
+         for J in Columna'First..Columna'Last loop
+            acumulador:= acumulador + M(I,J);
+            Cont:= Cont+1;
+         end loop;
+      end loop;
+      Matprom:= (Acumulador/Cont);
+      return Matprom;
+   end Matprom;
+   
+   procedure Matmax (M: in Tmatriz; Col: out Columna; Fil: out Fila; max: out tdato) is
+   begin
+      Col:= Columna'First;
+      Fil:= Fila'First;
+      max:= m(fil,col);
+      for I in Fila'First.. Fila'Last loop
+         for J in Columna'First.. Columna'Last loop
+            if Max < M(I,J) then
+               fil:=I;
+               col:=J;
+               Max:= M(I,J);
+            end if;
+         end loop;
+      end loop;
+   end Matmax;
+   
+   function Vecmin (V: Tvector) return Tdato is
+      I: Tindice;
+   begin  
+      I:= Tindice'First;
+      Vecmin:= V(I);
+      for I in Tindice'First..Tindice'Last loop
+         if V(I) < Vecmin then
+            Vecmin:= V(I);
+         end if;
+      end loop;
+      return Vecmin;
+   end Vecmin;
+   
+   function Matsum (M:Tmatriz) return Tdato is
+   begin
+      for I in Fila'First.. Fila'Last loop
+         for J in Columna'First.. Columna'Last loop
+            Matsum:= Matsum + M(I,J);
+         end loop;
+      end loop;
+      return Matsum;
+   end Matsum;
+   
+   function Vecprod (V: Tvector) return Tdato is
+      Inicial: Tindice;
+   begin
+      Inicial:= Tindice'First;
+      Vecprod:= V(Inicial);
+      for I in Tindice'Succ(Inicial)..Tindice'Last loop
+         Vecprod:= Vecprod* V(I);
+      end loop;
+      return Vecprod;
+   end Vecprod;
+   
+   function Mattraza (M:Tmatriz) return Tdato is 
+      Marca: Boolean;
+      I,filast: Fila;
+      J,columnlast:Columna;
+   begin
+      I:= Fila'First;
+      J:= Columna'First;
+      Mattraza:=M(I,J);
+      Marca:=True;
+      Filast:= Fila'Last;
+      Columnlast:= Columna'Last;
+      while marca loop
+         I:= Fila'Succ(I);
+         J:= Columna'Succ(J);
+         Mattraza:= Mattraza + M(I,J);
+         if I=Filast or J=Columnlast then
+            Marca:=False;
+         end if;
+      end loop;
+      return Mattraza;
+   end Mattraza;
+   
+end Matyvec;
+
+            

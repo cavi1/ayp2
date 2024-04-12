@@ -1,0 +1,97 @@
+V "GNAT Lib v3.15"
+M P W=b
+A -gnatwu
+A -gnatX
+P
+R nnvnnnnvnnnnnvvvvvvnnvvnnnnnnnnvnvnnnnnnnnnnnnnnvvnn
+
+U punto7%b		punto7.adb		ff203aca NE SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W interfaces%s		interfac.ads		interfac.ali
+W pila%s		pila.adb		pila.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.string_ops_concat_4%s  s-sopco4.adb	s-sopco4.ali
+
+D ada.ads		19941113050444 a0108083
+D a-except.ads		20020130163438 a9cbab76
+D a-finali.ads		19971119163820 d4be2e87
+D a-filico.ads		19970305035844 83058640
+D a-inteio.ads		19941113050258 58c81565
+D a-ioexce.ads		19941113082010 d52e128a
+D a-stream.ads		20011115005110 dbe6acb4
+D a-tags.ads		20010330232918 bc792b69
+D a-textio.ads		20000826155840 98d7a37c
+D a-tiinio.ads		19971119163950 d2c49634
+D interfac.ads		19990427073020 6e859da6
+D i-cstrea.ads		20020108195218 4c49c040
+D pila.ads		20240404153750 cba4dd41
+D pila.adb		20240404020758 6672d53a
+D punto7.adb		20240406200656 f49b5192
+D system.ads		20020119124456 2f3d0cfb
+D s-exctab.ads		19990919135916 52f2ffc0
+D s-ficobl.ads		20001028010342 14416104
+D s-finimp.ads		19980221024008 ef65ab1e
+D s-finroo.ads		20001114142810 7e5e077b
+D s-imgint.ads		20000731002754 f1ba8463
+D s-parame.ads		20011130070724 315d7d16
+D s-secsta.ads		19990723182132 e384df23
+D s-soflin.ads		20011129200718 14059e84
+D s-stache.ads		20010607143152 8fc58eaa
+D s-stalib.ads		20010618061954 76713122
+D s-stoele.ads		19980907180906 c6bef0ad
+D s-stratt.ads		20001228190446 9fdf8f81
+D s-sopco4.ads		20000731002830 3cc42ca6
+D s-unstyp.ads		20011122181014 05ad3732
+D unchconv.ads		19960730064842 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 15|1r6 1r27 2r5 2r26
+X 5 a-inteio.ads
+20K13*Integer_Text_IO 15|1r10 2r9
+X 9 a-textio.ads
+51K13*Text_IO 442e16 15|1r31 2r30
+169U14*New_Line 15|42r13 69r4 72r4 75r4
+172U14*Skip_Line 15|18r10
+245U14*Put 15|58r13 68r4 71r4 74r4
+X 10 a-tiinio.ads
+59U14*Get 15|17r10[15|20]
+69U14*Put 15|41r13[15|20]
+X 13 pila.ads
+5k12*Pila 22e12 15|1r40 6r27
+7R12 Tpila 15|8r24[6]
+9U17 Limpiar 15|30r10[6]
+12U17 Meter 15|19r10[6] 43r13[6]
+13U17 Sacar 15|40r13[6] 55r16[6]
+X 15 punto7.adb
+4U11*Punto7 77l5 77t11
+6K12 Pilaint 7r8
+8R12 Pilaint3{13|7R12} 10r33 13r36 25r15 64r9
+10A9 Tvec 24r32 27r16 27r28 35r38 38r16 38r28 48r39 52r16 52r28 65r9
+13U14 Crearpilas 21l8 21t18 28r10
+13R26 Pila{8R12} 19m16
+14i7 X{integer} 17m14 19r21
+16i11 I{integer}
+24U14 Crearvec 32l8 32t16 70r4
+24a24 Vec{10A9} 29m10
+25R7 Pilaux{8R12} 28m21 29r19 30m18
+27i11 I{integer} 29r14
+35U14 Sacarimpar 45l24 45t34 73r4
+35a26 Vec{10A9} 40m19 43m19
+36i7 X{integer} 40m26 41r17 43r26
+38i11 I{integer} 39r13 40r23 43r23
+48U14 Sumatoriapar 61l8 61t20 76r4
+48a28 Vec{10A9} 55m23
+49i7 X{integer} 55m30 56r40
+49i10 Sumatoria{integer} 51m7 56m16 56r28 58r121 59m13
+52i11 I{integer} 53r13 55r27 58r92
+54i17 j{integer}
+64R4 Pila{8R12}
+65a4 Vec{10A9} 70m13 73m15 76m18
+

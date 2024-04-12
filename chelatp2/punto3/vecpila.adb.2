@@ -1,0 +1,68 @@
+with ada.Integer_Text_IO, Pila; 
+use Ada.Integer_Text_Io;
+   
+
+procedure Vecpila is
+   
+   package Pilafloat is new Pila (Float);
+   use Pilafloat;
+   
+
+   type Tvec is array (1..10) of Integer;
+   
+   procedure Crearvec (Vec: out Tvec) is
+   begin
+      for I in tVec'First..tVec'Last loop
+         Get (Vec(I));
+      end loop;
+   end Crearvec;
+
+   function Promedio (Vec: Tvec) return Float is
+      Prom: Float;
+      Dim, Acum: Integer;
+   begin
+      Acum:=0;
+      Dim:=0;
+      for I in Tvec'First..Tvec'Last loop
+         Acum:= Acum + Vec(I);
+         Dim:= Dim + 1;
+      end loop;
+      Prom:= Acum / Dim;
+      return Prom;
+   end Promedio;
+
+   function Prodpares (Vec:Tvec) return Float is
+      Productoria: Float;
+   begin
+      Productoria:= 1.0;
+      for I in Tvec'First..Tvec'Last loop
+         if I rem 2 = 0 then
+            Productoria:= Productoria * Vec(I);
+         end if;
+      end loop;
+      return Productoria;
+   end Prodpares;
+         
+
+   function Generarpila (Vec: Tvec) return Tpila is
+      Pila: Tpila;
+      Productopares, Prom, Sumatoria: Float;
+   begin
+      Prom:=Promedio(Vec);
+      Productopares:= Prodpares(Vec);      Sumatoria:= Prom + Productopares;
+      Meter(Pila, Prom);
+      Meter(Pila, Prodcutopares);
+      Meter(Pila, Sumatoria);
+   end Generarpila;
+   
+   procedure Impresion (Pila: in Tpila) is
+   begin
+      for i in arreglopila'first.. arreglopila'last loo
+      
+   Vector: Tvec;
+   Pilaf: Tpila;
+
+   begin
+      Put("ingrese los 10 elementos del vector");
+      Crearvec (Vector);
+      

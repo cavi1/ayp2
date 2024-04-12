@@ -1,0 +1,118 @@
+V "GNAT Lib v3.15"
+M P W=b
+A -gnatwu
+A -gnatX
+P
+R nnvnnnnvnnnnnvvvvvvnnvvnnnnnnnnvnvnnnnnnnnnnnnnnvvnn
+
+U punto9%b		punto9.adb		ec769852 NE SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W cola%s		cola.adb		cola.ali
+W pila%s		pila.adb		pila.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.string_ops_concat_3%s  s-sopco3.adb	s-sopco3.ali
+W system.string_ops_concat_4%s  s-sopco4.adb	s-sopco4.ali
+W vector%s		vector.adb		vector.ali
+
+D ada.ads		19941113050444 a0108083
+D a-except.ads		20020130163438 a9cbab76
+D a-finali.ads		19971119163820 d4be2e87
+D a-filico.ads		19970305035844 83058640
+D a-inteio.ads		19941113050258 58c81565
+D a-ioexce.ads		19941113082010 d52e128a
+D a-stream.ads		20011115005110 dbe6acb4
+D a-tags.ads		20010330232918 bc792b69
+D a-textio.ads		20000826155840 98d7a37c
+D a-tiinio.ads		19971119163950 d2c49634
+D cola.ads		20240326184228 ebb5946e
+D cola.adb		20240326184222 a6a4c72f
+D interfac.ads		19990427073020 6e859da6
+D i-cstrea.ads		20020108195218 4c49c040
+D pila.ads		20240404153750 cba4dd41
+D pila.adb		20240404020758 6672d53a
+D punto9.adb		20240409224028 a0566e0c
+D system.ads		20020119124456 2f3d0cfb
+D s-exctab.ads		19990919135916 52f2ffc0
+D s-ficobl.ads		20001028010342 14416104
+D s-finimp.ads		19980221024008 ef65ab1e
+D s-finroo.ads		20001114142810 7e5e077b
+D s-imgint.ads		20000731002754 f1ba8463
+D s-parame.ads		20011130070724 315d7d16
+D s-secsta.ads		19990723182132 e384df23
+D s-soflin.ads		20011129200718 14059e84
+D s-stache.ads		20010607143152 8fc58eaa
+D s-stalib.ads		20010618061954 76713122
+D s-stoele.ads		19980907180906 c6bef0ad
+D s-stratt.ads		20001228190446 9fdf8f81
+D s-sopco3.ads		20000731002826 fb5c3964
+D s-sopco4.ads		20000731002830 3cc42ca6
+D s-unstyp.ads		20011122181014 05ad3732
+D unchconv.ads		19960730064842 1b7a14c5
+D vector.ads		20240313024254 ac2e0968
+D vector.adb		20240313025624 96cc2007
+X 1 ada.ads
+18K9*Ada 21e8 17|1r6 1r27 2r5 2r26
+X 5 a-inteio.ads
+20K13*Integer_Text_IO 17|1r10 2r9
+X 9 a-textio.ads
+51K13*Text_IO 442e16 17|1r31 2r30
+169U14*New_Line 17|46r7 56r10
+172U14*Skip_Line 17|37r10
+245U14*Put 17|35r10 45r7 55r10 77r7
+X 10 a-tiinio.ads
+59U14*Get 17|15r7[17|20] 36r10[17|20]
+69U14*Put 17|10r7[17|20]
+X 11 cola.ads
+3k12*Cola 20e12 17|1r46 27r31
+4R12 Tcola 17|29r28[27]
+7U17 Insertar 17|57r10[27] 79r7[27]
+8U17 Suprimir 17|67r7[27]
+X 15 pila.ads
+5k12*Pila 22e12 17|1r40 23r27
+7R12 Tpila 17|25r24[23]
+9U17 Limpiar 17|58r10[23]
+12U17 Meter 17|47r7[23] 78r7[23]
+13U17 Sacar 17|68r7[23]
+X 17 punto9.adb
+4U11*Punto9 87l5 87t11
+5i4 Rango{integer} 6r39
+6I12 Tindex{integer} 19r42 34r16 34r30 69r18 71r16 71r30
+8U14 Putint 11l8 11t14 19r50
+8i22 X{integer} 10r11
+13U14 Getint 16l8 16t14 19r58
+13i22 X{integer} 15m11
+19K12 Vecint 20r8
+23K12 Pilavec 24r8
+25R12 Pilavec3{15|7R12} 27r36 41r38 51r15 63r14
+27K12 Colapilavec 28r8
+29R12 Colapilavec3{11|4R12} 50r37 62r38 82r16
+32U14 Crearvec 39l8 39t16 44r7
+32a24 Vec{35|12A12} 36m14
+34i11 I{integer} 35r53 36r18
+41U14 Crearpila 48l8 48t17 54r10
+41R25 Pila{25R12} 47m13
+42a7 Vecaux{35|12A12} 44m16 47r19
+50U14 Crearcola 60l8 60t17 85r4
+50R25 Cola{29R12} 57m19
+51R7 Pilaux{25R12} 54m20 57r25 58m18
+53i11 I{integer}
+62U14 Mayorposi 80l8 80t17 86r4
+62R25 Cola{29R12} 67m17 79m17
+63R7 Pilaux{25R12} 67m23 68m13 78m13 79r22
+64a7 Vecaux{35|12A12} 68m21 70r15 72r13 72r32 74r21 78r21
+65i7 Posicion{integer} 69m7 70r22 72r20 73m13 77r150
+65i17 valor{integer} 70m7 74m13 77r197
+71i11 I{integer} 72r39 73r24 74r28
+82R4 Mastercola{29R12} 85m15 86m15
+X 35 vector.ads
+11k12*Vector 17|1r52 19r26 35|15e14
+12A12 Tvector 17|23r33[19] 32r33[19] 42r15[19] 64r15[19]
+

@@ -1,0 +1,40 @@
+V "GNAT Lib v3.15"
+A -gnatwu
+A -gnatX
+P
+R nnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U cola%b		cola.adb		4d115341 NE PK GE
+
+U cola%s		cola.ads		ebb5946e EE NE PK GE
+
+D cola.ads		20240326184228 ebb5946e
+D cola.adb		20240326184222 a6a4c72f
+D system.ads		20020119124456 2f3d0cfb
+X 1 cola.ads
+2+9 Tdato 7r60 8r64 13r56 2|11r57 22r61
+3k12*Cola 20l8 20e12 2|1b14 49l5 49t9
+4R12 Tcola 6r39 7r40 8r40 9r29 10r29 14c12 19e17 2|4r36 11r37 22r37 33r26
+. 45r26
+4i19 Max{positive} 16r37 17r29 18r28 2|6r26 7r25 16r43 27r44 36r28
+5X7 Overflow 2|14r16
+5X17 Underflow 2|25r16
+6U17 Limpiar 2|4b14 8l8 8t15
+6R26 Cola{4R12} 2|4b23 6m7 6r21 7m7 7r20
+7U17 Insertar 2|11b14 19l8 19t16
+7R27 Cola{4R12} 2|11b24 13r17 16m10 16r23 16r38 17m10 17r26
+7+47 elemento{2+9} 2|11b44 17r41
+8U17 Suprimir 2|22b14 30l8 30t16
+8R27 Cola{4R12} 2|22b24 24r17 27m10 27r23 27r39 28r24 28r40
+8+47 Elementosup{2+9} 2|22b44 28m10
+9V16 Llena{boolean} 2|13r10 33b13 42l8 42t13
+9R23 Cola{4R12} 2|33b20 36r10 36r23 39r22 41r26
+10V16 Vacia{boolean} 2|24r10 45b13 48l8 48t13
+10R23 Cola{4R12} 2|45b20 47r14 47r28
+13A12 Arreglocola 16r21
+16a10 Elementos{13A12} 2|17r15 28r29
+17i10 Frente{positive} 2|6r12 27r15 27r28 28r45 41r31 47r19
+18i10 Final{positive} 2|7r12 16r15 16r28 17r31 36r15 39r27 47r33
+X 2 cola.adb
+34i7 Siguiente{positive} 37m10 39m10 41r14
+

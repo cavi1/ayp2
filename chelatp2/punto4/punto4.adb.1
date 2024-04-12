@@ -1,0 +1,48 @@
+with Ada.Text_Io, Ada.Integer_Text_Io, Ada.Characters.Handling;
+use Ada.Text_Io, Ada.Integer_Text_Io, Ada.Characters.Handling;
+
+procedure Punto4 is
+   
+
+   subtype Cade50 is String (1..50);
+   
+
+procedure Contadordigitos (Cadena: in Cade50; long: in integer) is
+   Contador:Integer;
+begin
+   Contador:=0;
+   for I in Cadena'range loop
+      if Is_Digit (Cadena(I)) then
+         Contador:=Contador+1;
+      end if;
+   end loop;   Put (" el texto tiene " &Integer'Image (Contador)&  " digitos numericos");
+   New_Line;
+end ContadorDigitos;
+
+procedure Contadorletras (Cadena: in Cade50; long: in integer) is
+   Contador: Integer;
+begin
+   Contador:=0;
+   for I in 1..long loop
+      if Is_Letter (Cadena(I)) then
+         Contador:=Contador +1;
+      end if;
+   end loop;
+   Put ("el texto tiene " &Integer'Image(Contador)& " letras");
+   New_Line;
+end ContadorLetras;
+
+
+Cadena: Cade50;
+Longit: Integer;   
+   
+
+
+begin
+   Put (" ingrese su texto ");
+   Get_line (Cadena,Longit);   Contadordigitos (Cadena, longit);
+   Contadorletras (Cadena);
+end Punto4;
+
+   
+

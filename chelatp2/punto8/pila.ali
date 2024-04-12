@@ -1,0 +1,37 @@
+V "GNAT Lib v3.15"
+A -gnatwu
+A -gnatX
+P
+R nnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U pila%b		pila.adb		add6087b NE PK GE
+
+U pila%s		pila.ads		cba4dd41 EE NE PK GE
+
+D pila.ads		20240404153750 cba4dd41
+D pila.adb		20240404020758 6672d53a
+D system.ads		20020119124456 2f3d0cfb
+X 1 pila.ads
+2+9 Tdato 12r62 13r64 16r56 2|18r58 27r61
+5k12*Pila 22l8 22e12 2|1b14 37l5 37t9
+7R12 Tpila 9r39 10r29 11r29 12r37 13r37 17c12 21e17 2|3r36 8r26 13r26 18r33
+. 27r34
+7i19 Max{positive} 20r37 2|15r33
+8X7 Underflow 2|33r16
+8X18 Overflow 2|23r18
+9U17 Limpiar 2|3b14 6l8 6t15
+9R26 Pila{7R12} 2|3b23 5m7
+10V16 Vacia{boolean} 2|8b13 11l8 11t13 29r14
+10R23 Pila{7R12} 2|8b20 10r14
+11V16 Llena{boolean} 2|13b13 16l8 16t13 20r14
+11R23 Pila{7R12} 2|13b20 15r14 15r28
+12U17 Meter 2|18b14 25l8 25t13
+12R24 Pila{7R12} 2|18b21 20r20 21m10 21r24 22m10 22r25
+12+44 Nuevoelemento{2+9} 2|18b40 22r40
+13U17 Sacar 2|27b14 35l8 35t13
+13R24 Pila{7R12} 2|27b21 29r20 30r26 30r42 31m10 31r24
+13+44 Elementosacado{2+9} 2|27b41 30m10
+16A12 Arreglopila 20r21
+19i10 Cabeza{natural} 2|5r12 10r19 15r19 21r15 21r29 22r30 30r47 31r15 31r29
+20a10 Elementos{16A12} 2|22r15 30r31
+

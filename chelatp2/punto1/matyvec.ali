@@ -1,0 +1,80 @@
+V "GNAT Lib v3.15"
+A -gnatwu
+A -gnatX
+A -gnatc
+P NO
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U matyvec%s		matyvec.ads		f729ad46 EE PK GE
+
+D matyvec.ads		20240404014910 f729ad46
+X 1 matyvec.ads
+2+9 Tdato 8r31 9r30 12r28 12r42 13r28 13r42 15r28 16r28 16r42 17r18 22r42
+. 23r48 24r39 32r44 33r82 34r43 35r43 36r44 37r45
+3E9 Tindice 10r28 11r25 22r30 27r29 28r30
+4E9 fila 14r28 23r30 24r30 33r67
+5E9 columna 11r36 23r36 28r42 33r49
+8U19 Get
+8+24 X{2+9}
+9U19 Put
+9+24 X{2+9}
+10V18 "="{boolean}
+10e23 X{3E9}
+10e25 Y{3E9}
+11V18 "="{boolean}
+11e23 X{3E9}
+11e34 Y{5E9}
+12V18 "+"{2+9}
+12+23 X{2+9}
+12+25 Y{2+9}
+13V18 "*"{2+9}
+13+23 X{2+9}
+13+25 Y{2+9}
+14V18 ">"{boolean}
+14e23 X{4E9}
+14e25 Y{4E9}
+15V18 "<"{boolean}
+15+23 X{2+9}
+15+25 Y{2+9}
+16V18 "/"{2+9}
+16+23 X{2+9}
+16+25 y{2+9}
+17+4 Valorinicial{2+9}
+21k12*Matyvec 38l8 38e15
+22A12 Tvector 29r37 29r57 30r37 30r57 31r35 34r27 36r28
+23A12 Tmatriz 31r50 32r28 33r31 35r27 37r29
+24A12 Tvecmat 31r70
+27V16 Dimvec{boolean}
+27e24 X{3E9}
+27e26 Y{3E9}
+28V16 Dimvecmat{boolean}
+28e27 X{3E9}
+28e39 Y{5E9}
+29U17 vecsuma
+29a26 V1{22A12}
+29a30 V2{22A12}
+29a46 vresu{22A12}
+30U17 vecprod
+30a26 V1{22A12}
+30a30 V2{22A12}
+30a46 vresu{22A12}
+31U17 vecmatprod
+31a29 V{22A12}
+31a44 M{23A12}
+31a59 vresu{24A12}
+32V16 Matprom{2+9}
+32a25 M{23A12}
+33U17 Matmax
+33a25 M{23A12}
+33e40 Col{5E9}
+33e58 Fil{4E9}
+33+73 max{2+9}
+34V16 Vecmin{2+9}
+34a24 V{22A12}
+35V16 Matsum{2+9}
+35a24 M{23A12}
+36V16 Vecprod{2+9}
+36a25 V{22A12}
+37V16 Mattraza{2+9}
+37a26 M{23A12}
+

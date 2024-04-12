@@ -1,0 +1,92 @@
+with Ada.Integer_Text_Io, Ada.Text_Io, Pila, vector;
+use Ada.Integer_Text_Io, Ada.Text_Io;
+
+procedure Punto8 is
+   
+   procedure Putint (X:Integer) is
+   begin
+      Get(X);
+   end Putint;
+   
+procedure 
+
+   Rangovec:Integer:=5;
+   subtype Tindex is Integer range (1..Rangovec);
+   package Vecint is new Vector(Integer,tindex, );
+   
+   --type Tvec is array (1..5) of Integer;
+
+   package Pilavectorial is new Pila(Tvec);
+   use Pilavectorial;
+   
+   subtype tPilavec is Tpila (4);
+   
+
+   procedure Crearvec (Vec: out Tvec) is
+   begin
+      for I in Tvec'First..Tvec'Last loop
+         Get(Vec(I));
+         Skip_Line;
+      end loop;
+   end Crearvec;
+   
+   procedure Crearpila (Pila: in out Tpilavec) is
+      Vecaux: Tvec; 
+   begin
+      for I in 1..4 loop
+         Crearvec(Vecaux);
+         Meter(Pila, Vecaux);
+      end loop;
+   end Crearpila;
+   
+
+   procedure Sumatoriacabeza (Pila: in out Tpilavec) is
+      Sumatoria: Integer;
+      Vecaux: Tvec;
+   begin
+      Sacar (Pila, Vecaux);
+      Sumatoria:=0;
+      for I in Tvec'First..Tvec'Last loop
+         Sumatoria:= Sumatoria + Vecaux(I);
+      end loop;
+      Put (" la sumatoria de los elementos que estan en el vector en la cabeza de la pila es de " &Integer'Image(Sumatoria));
+      New_Line;
+      Meter(Pila, Vecaux);
+   end Sumatoriacabeza;
+   
+
+   procedure Mayorsum (Pila:in out Tpilavec) is
+      Sumatoriaux, sumatoriamax, Posicion: Integer;
+      Vecaux: Tvec;
+      Pilaux: Tpilavec;
+   begin
+      Sumatoriamax:=0;
+      Sumatoriaux:=0;
+      for I in 1..4 loop
+         Sacar(Pila,Vecaux);
+         for j in Tvec'First..Tvec'Last loop
+            Sumatoriaux:= Sumatoriaux + Vecaux(j);
+         end loop;
+         if Sumatoriaux > Sumatoriamax then
+            Sumatoriamax:=Sumatoriaux;
+            Posicion:= I;
+         end if;
+         Sumatoriaux:=0;
+         Meter (Pilaux, Vecaux);
+      end loop;
+      Pila:= Pilaux;
+      Put (" el vector que esta en la posicion " &Integer'Image(Posicion)& " de  la pila tiene la mayor sumatoria de componentes con respecto a los demas vectores: " &Integer'Image(Sumatoriamax));
+      New_Line;      
+   end Mayorsum;
+   
+   Masterpila: Tpilavec;
+
+begin
+   Put (" ingrese los 5 elementos para los 4 vectores que van a estar dentro de la pila.. ");
+   New_Line;
+   Crearpila (Masterpila);
+   New_Line;
+   Sumatoriacabeza (Masterpila);
+   Mayorsum (Masterpila);
+end Punto8;
+

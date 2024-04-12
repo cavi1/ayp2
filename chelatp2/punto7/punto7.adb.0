@@ -1,0 +1,63 @@
+with Ada.Integer_Text_Io, Pila;
+use Ada.Integer_Text_Io;
+
+procedure Punto7 is
+   
+   package Pilaint is new Pila (Integer);
+   subtype Pilaint3 is Tpila(3);
+   
+   type Tvec is array (1..5) of Pilaint3;
+   
+
+   procedure Crearvec (Vec:out Tvec) is
+      Pilaux: Pilaint3;
+   begin
+      for I in Tvec'First..Tvec'Last loop
+         Crearpilas(Pilaaux);
+         Vec(I):= Pilaaux;
+         Limpiar(Pilaux);
+      end loop;
+   end Crearvec;
+
+
+   procedure Crearpilas (Pila: out pilaint3) is
+      X:Integer;
+   begin
+      for I in 1..3 loop
+         Get(X);
+         Meter(Pila,X);
+      end loop;
+   end Crearpilas;
+   
+   procedure Sacarimpar (Vec: in Tvec) is
+      X:Integer;
+   begin
+      for I in Tvec'First..Tvec'Last loop
+         if I rem 2 /= 0 then
+            Sacar(Pila,X);
+            Put(X);
+         end if;
+      end loop;   end Sacarimpar;
+   
+   procedure Sumatoriapar (Vec:in Tvec) is
+      X, Sumatoria:Integer;
+   begin
+      Sumatoria:=0;
+      for I in Tvec'First..Tvec'Last loop
+         if I rem 2 = 0 then
+            for j in 1..3 loop
+               Sacar (Pila,X);
+               Sumatoria:= Sumatoria + X;
+            end loop;
+            Put(" la sumatoria de los elementos de la pila en la posicion " &Integer'Image(I)& " es de " &Integer'Image(Sumatoria));
+            Sumatoria:=0;         end if;
+      end loop;
+   end Sumatoriapar;
+   
+
+   Pila:Pilaint3;
+   Vec: Tvec;
+   
+begin
+   Put ( " acontinuacion ingrese los 3 elementos de cada pila para las 5 pilas del vector XD ");
+   

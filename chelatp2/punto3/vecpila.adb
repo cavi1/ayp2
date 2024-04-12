@@ -1,0 +1,85 @@
+with Ada.Integer_Text_Io, Ada.Text_Io, Pila;
+use Ada.Integer_Text_Io, ada.Text_IO;
+   
+
+procedure Vecpila is
+   
+   package Pilafloat is new Pila (Float);
+   use Pilafloat;
+   subtype Tpila3 is Tpila(3);
+   
+
+
+   type Tvec is array (1..10) of integer;
+   
+   procedure Crearvec (Vec: out Tvec) is
+   begin
+      for I in tVec'First..tVec'Last loop
+         Get (Vec(I));
+         Skip_Line;
+      end loop;
+   end Crearvec;
+
+   function Promedio (Vec: Tvec) return Float is
+      Prom: Float;
+      Dim, Acum: Integer;
+   begin
+      Acum:=0;
+      Dim:=0;
+      for I in Tvec'First..Tvec'Last loop
+         Acum:= Acum + Vec(I);
+         Dim:= Dim + 1;
+      end loop;
+      Prom:= float(Acum) / float(Dim);
+      return Prom;
+   end Promedio;
+
+   function Prodpares (Vec:Tvec) return Float is
+      Productoria: Float;
+   begin
+      Productoria:= 1.0;
+      for I in Tvec'First..Tvec'Last loop
+         if I rem 2 = 0 then
+            Productoria:= Productoria * float(Vec(I));
+         end if;
+      end loop;
+      return Productoria;
+   end Prodpares;
+         
+
+   function Generarpila (Vec: Tvec) return Tpila3 is
+      Pila: Tpila3;
+      Productopares, Prom, Sumatoria: Float;
+   begin
+      Prom:=Promedio(vec);
+      Productopares:= Prodpares(Vec);      Sumatoria:= Prom + Productopares;
+      Meter(Pila, Prom);
+      Meter(Pila, Productopares);
+      Meter(Pila, Sumatoria);
+      return Pila;
+   end Generarpila;
+   
+   procedure Impresion (Pila: in out Tpila3) is
+      X:Float;
+   begin
+      for I in 1..3 loop
+         Sacar (Pila,x);
+         Put(x);
+         New_Line;
+      end loop;
+   end Impresion;      
+      
+   Vector: Tvec;
+   Pilaf: Tpila3;
+
+   begin
+      Put("ingrese los 10 elementos del vector");
+      New_Line;
+      Crearvec (Vector);
+      Pilaf:= Generarpila (Vector);
+      Put(" se va a imprimir el promedio, productoria de elementos pares y la suma d los 2 anteriores respectivamente");
+      New_Line;
+      Impresion(Pilaf);
+   end Vecpila;
+   
+      

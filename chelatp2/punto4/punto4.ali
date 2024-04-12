@@ -1,0 +1,81 @@
+V "GNAT Lib v3.15"
+M P W=b
+A -gnatwu
+A -gnatX
+P
+R nnvnnnnvnnnnnvvvvvvnnvnnnnnnnnnvnvnnnnnnnnnnnnnnvvnn
+
+U punto4%b		punto4.adb		27c37ce2 NE SU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.string_ops_concat_3%s  s-sopco3.adb	s-sopco3.ali
+
+D ada.ads		19941113050444 a0108083
+D a-charac.ads		19951215061236 a61fb5a9
+D a-chahan.ads		19971119163808 e0cd8545
+D a-except.ads		20020130163438 a9cbab76
+D a-finali.ads		19971119163820 d4be2e87
+D a-filico.ads		19970305035844 83058640
+D a-inteio.ads		19941113050258 58c81565
+D a-ioexce.ads		19941113082010 d52e128a
+D a-stream.ads		20011115005110 dbe6acb4
+D a-tags.ads		20010330232918 bc792b69
+D a-textio.ads		20000826155840 98d7a37c
+D a-tiinio.ads		19971119163950 d2c49634
+D interfac.ads		19990427073020 6e859da6
+D i-cstrea.ads		20020108195218 4c49c040
+D punto4.adb		20240405212032 07114fbe
+D system.ads		20020119124456 2f3d0cfb
+D s-exctab.ads		19990919135916 52f2ffc0
+D s-ficobl.ads		20001028010342 14416104
+D s-finimp.ads		19980221024008 ef65ab1e
+D s-finroo.ads		20001114142810 7e5e077b
+D s-imgint.ads		20000731002754 f1ba8463
+D s-parame.ads		20011130070724 315d7d16
+D s-secsta.ads		19990723182132 e384df23
+D s-soflin.ads		20011129200718 14059e84
+D s-stache.ads		20010607143152 8fc58eaa
+D s-stalib.ads		20010618061954 76713122
+D s-stoele.ads		19980907180906 c6bef0ad
+D s-stratt.ads		20001228190446 9fdf8f81
+D s-sopco3.ads		20000731002826 fb5c3964
+D s-unstyp.ads		20011122181014 05ad3732
+D unchconv.ads		19960730064842 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 15|1r6 1r19 1r40 2r5 2r18 2r39
+X 2 a-charac.ads
+19K13*Characters 22e19 15|1r44 2r43
+X 3 a-chahan.ads
+41K24*Handling 136e28 15|1r55 2r54
+50V13*Is_Letter{boolean} 15|27r10
+54V13*Is_Digit{boolean} 15|15r10
+X 7 a-inteio.ads
+20K13*Integer_Text_IO 15|1r23 2r22
+X 11 a-textio.ads
+51K13*Text_IO 442e16 15|1r10 2r9
+169U14*New_Line 15|19r4 32r4
+245U14*Put 15|18r17 31r4 42r4
+252U14*Get_Line 15|43r4
+X 15 punto4.adb
+4U11*Punto4 45l5 45t11
+7A12 Cade50{string} 10r39 22r38 36r9
+10U11 Contadordigitos 20l5 20t20 43r33
+10a28 Cadena{7A12} 15r20
+10i47 long{integer} 14r16
+11i4 Contador{integer} 13m4 16m10 16r20 18r57
+14i8 I{integer} 15r27
+22U11 Contadorletras 33l5 33t19 44r4
+22a27 Cadena{7A12} 27r21
+22i46 long{integer} 26r16
+23i4 Contador{integer} 25m4 28m10 28r20 31r42
+26i8 I{integer} 27r28
+36a1 Cadena{7A12} 43m14 43r50 44r20
+37i1 Longit{integer} 43m21 43r58 44r28
+
