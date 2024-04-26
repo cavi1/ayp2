@@ -2,7 +2,7 @@ generic
    type Telemento is private;
    package PilaDIN is
       type Tpila is private; 
-      Underflow:exception;
+      pilavacia:exception;
       procedure Limpiar(Pila: in out Tpila);--crea/limpia la pila
       function Vacia(Pila:Tpila)return Boolean;--chequea si está vacía
       procedure Meter(Pila: in out Tpila; Nuevoelem:in Telemento);--pone un elemento

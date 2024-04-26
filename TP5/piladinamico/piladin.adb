@@ -2,9 +2,9 @@ with Ada.Unchecked_Deallocation;
 
 package body Piladin is
    
-procedure Free is new Ada.Unchecked_Deallocation(Tiponodo, Tipopila);
+procedure Free is new Ada.Unchecked_Deallocation(Tiponodo, Tpila);
    
-function Vacia (Pila: in Tipopila) return Boolean is
+function Vacia (Pila: in Tpila) return Boolean is
    
    begin
 
@@ -12,16 +12,16 @@ function Vacia (Pila: in Tipopila) return Boolean is
       
 end Vacia;
    
-procedure Meter (Pila: in out Tpila; Elemento: in telemento) is
+procedure meter(Pila: in out Tpila; nuevoelem: in telemento) is
       
-      Nuevonodo: Tipopila:= new Tiponodo'(Elemento, Pila);--creo el nodo (ES UNA DIRECCIÓN DE MEMORIA, ES UN PUNTERO), que es de tipopila y tiponodo
+      Nuevonodo: Tpila:= new Tiponodo'(nuevoelem, Pila);--creo el nodo (ES UNA DIRECCIÓN DE MEMORIA, ES UN PUNTERO), que es de tipopila y tiponodo
 begin                                                          --y contiene en el campo .info al elemento  ingresado, y en el campo .sig 
                                                           --a la direcion de la cabeza de la pila ingresada
 Pila:= Nuevonodo;--como nuevonodo es una dirección de memoria, se la asigno a pila, entonces la dirección que cree como nuevonodo se convierte
                   --en la dirección de la cabeza de la pila, si no hubiera asignado pila al tiponodo en la declaración de variables
-end Meter;        --esta se hubiera sobreescrito
+end meter;        --esta se hubiera sobreescrito
    
-procedure Sacar (Pila:in out TPila; Elemento: out TElemento) is
+procedure Sacar (Pila:in out TPila; Elemsacado: out TElemento) is
 
    Temp: Tpila:= Pila;--crea otro apuntador a la dirección de memoria de la cabeza de la pila
    
@@ -29,7 +29,7 @@ begin
    
    if Vacia (Pila) then raise Pilavacia;
    
-   else Elemento:= Pila.Info;
+   else Elemsacado:= Pila.Info;
    
       Pila:= Pila.Sig;--como sig contiene el puntero con la dirección del siguiente elemento, se convierte en esa direccion
       
@@ -39,9 +39,9 @@ begin
    
 end Sacar;
 
-procedure Limpiar (Pila:in out Tipopila) is
+procedure Limpiar (Pila:in out Tpila) is
    
-   Temp: Tipopila:= Pila;
+   Temp: Tpila:= Pila;
    
 begin
    
@@ -56,4 +56,7 @@ begin
    end loop;
    
 end Limpiar;
+
+end Piladin;
+
 
