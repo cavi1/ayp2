@@ -1,0 +1,47 @@
+with Ada.Integer_Text_Io, ada.Text_IO; 
+use Ada.Integer_Text_Io, ada.Text_IO;
+
+procedure Punto1 is
+   
+   function Resto (M,N: Float) return Float is
+      Restoaux: Float;
+   begin
+      loop
+         Restoaux:= M-N;
+         exit when Restoaux < 0.0;
+      end loop;
+      Restoaux:= Restoaux + N;
+      return Restoaux;
+   end Resto;
+      
+   
+   function Mcd_Recur (M,N: float) return Float is
+   begin
+      if N>M then
+         Put ("n > m");
+         return (Mcd_Recur(N,M));
+      else if N = 0.0 then
+            Put ("n = 0");
+            return M;
+         else if N > 0.0 then
+            put(" n
+               return Mcd_recur(N,Resto(M,N));
+            end if;
+         end if;
+      end if;
+   end Mcd_Recur;
+   
+   M, N:Integer;
+         
+
+begin
+   Put (" ingrese un el numero m ");
+   Get(M);
+   Skip_Line;
+   Put (" ingrese un el numero n ");
+   Get(N);
+   Skip_Line;
+   Put(" el maximo comun divisor entre" &Integer'Image(M)& " y" &Integer'Image(N)& " es" &Float'Image(Mcd_Recur(Float(M), Float(N))));
+   
+end Punto1;
+
