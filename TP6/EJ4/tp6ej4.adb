@@ -1,11 +1,12 @@
 --Supongamos que tenemos una lista combinada de alumnos de la Facultad ordenada
---alfabÈticamente. Esta lista est· compuesta de alumnos de Licenciatura y de Postgrado. Cada
+--alfab√©ticamente. Esta lista est√° compuesta de alumnos de Licenciatura y de Postgrado. Cada
 --alumno lleva un dato adicional que indica si es alumno de Licenciatura o de Postgrado.
---Nuestra tarea es producir una lista impresa ordenada alfabÈticamente de estudiantes de
+--Nuestra tarea es producir una lista impresa ordenada alfab√©ticamente de estudiantes de
 --Licenciatura, seguida de otra similar de alumnos de Postgrado. 
 
---dada una lista desordenada de estudiantes de grado y posgrado traspasar a dos listas ordenadas que ordenen alfabÈticamente a los de grado por un lado y a los de
+--dada una lista desordenada de estudiantes de grado y posgrado traspasar a dos listas ordenadas que ordenen alfab√©ticamente a los de grado por un lado y a los de
 --posgrado por otro
+--en el ejercicio ped√≠a que la lista original est√© ordenada pero bueno, en todo caso llenar√≠a una estructura de lista ordenada y descarto la estructura de lista no ordenada, el procedimiento para seleccionar ser√≠a el mismo
 with Listaord, Listanoord, Ada.Integer_Text_Io, ada.Text_IO; 
 use ada.Integer_Text_IO, ada.Text_IO;
 
@@ -45,7 +46,7 @@ subtype long is natural range 1..10;
          long:natural;
       begin
          for I in 1..Cantalumnos loop
-                        Put_line("ingrese el nombre del alumno: ");--precondicion: el alumno no tiene un nro o caracter extraÒo de la tabla ascii como nombre
+                        Put_line("ingrese el nombre del alumno: ");--precondicion: el alumno no tiene un nro o caracter extra√±o de la tabla ascii como nombre
             Get_Line(Regi.Nombre,Long);Skip_Line;
             Put_Line("ingrese L si es de licenciatura o P si es de posgrado: ");
             Get(Regi.Estadoacademico);Skip_Line;
