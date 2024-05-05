@@ -37,7 +37,7 @@ procedure Punto10tp6 is
    package Lista_nombres is new Listaenlazadaordenada (string20, "<", ">");
    use Lista_Nombres;
    
-   Listadenombres: Lista_Nombres.Tlista; -- bastante al pedo lo cree pq no lo uso, pero capaz sirve para el tp final
+   Listadenombres: Lista_Nombres.Tlista; -- esto no lo uso en ningun momento d la programacion pero capaz sirve en un futuro
 --------------------------------------------------------------------------------------   
 
    procedure Cargar_Ingredientes (lista: out lista_ingredientes.tlista) is
@@ -106,13 +106,52 @@ procedure Punto10tp6 is
          Imprimir(Listaing);
       end if;
    end Buscar_Imprimir;
+   
+   procedure Buscar_Receta (Listap: in out Lista_Postres.Tlista; nombre: in string20; long: in natural) is
+      Nombreaux: String20;
+      Longaux: Natural;
+   begin
+      Nombreaux:=Info(Listap).rname;
+      Longaux:= Info(Listap).rlong;
+      while Nombreaux(1..Longaux) /= nombre(1..long) or vacia(listap) loop
+         Listap:= Sig(Listap);
+         Nombreaux:=Info(Listap).Rname;
+         Longaux:= Info(Listap).Rlong; 
+      end loop;
+      if Vacia(Listap) then
+         Put( " el postre no esta en la lista ");
+      end if;
+   end Buscar_Receta;
       
+   procedure Insertar_Ingredientes (Listap: in out Lista_Postres.Tlista) is
+      Rta: Character;
+      Regi: R_Ingrediente;
+      Nombre: String20;
+      Long:Natural;
+      Listauxp: Lista_Postres.Tlista:= Listap;
+      Listaingredientes: Lista_Ingredientes.Tlista;
+   begin
+      Put(" cual receta queres modificar ");
+      Get_Line(Nombre, Long);
+      Buscar_Receta(Listauxp, Nombre, Long);
+      Put(" ingrese los ingredientes que quiere agregar a la receta ");
+      Rta:= 's';
+      Listaingredientes:=Info(Listauxp).Ingredientes;
+      while Rta = 's' loop
+         Get_Line(Regi.Ingname, Regi.Ilong);
+         Skip_Line;
+         Insertar(listaingredientes, Regi);
+         Put("  hay mas ingredientes? ");
+         Get(Rta);
+         Skip_Line;
+      end loop;
+   end Insertar_Ingredientes;
       
-
+         
 begin
    Crear_Postres (Listadenombres, Listadepostres);
    Buscar_Imprimir(Listadenombres, Listadepostres);
-end Punto10tp6;
-
+   Insertar_Ingredientes(Listadepostres);
+   Buscar_Imprimir(Listadenombres, Listadepostres);
    
-      
+end Punto10tp6;
