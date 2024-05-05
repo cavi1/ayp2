@@ -37,7 +37,7 @@ procedure Punto10tp6 is
    package Lista_nombres is new Listaenlazadaordenada (string20, "<", ">");
    use Lista_Nombres;
    
-   Listadenombres: Lista_Nombres.Tlista; -- esto no lo uso en ningun momento d la programacion pero capaz sirve en un futuro
+   Listadenombres: Lista_Nombres.Tlista;
 --------------------------------------------------------------------------------------   
 
    procedure Cargar_Ingredientes (lista: out lista_ingredientes.tlista) is
@@ -57,18 +57,33 @@ procedure Punto10tp6 is
          Skip_Line;
       end loop;
    end Cargar_Ingredientes;     
+   
             
-   procedure Crear_Postres (listan: in out lista_nombres.tlista; Listap: in out Lista_Postres.Tlista) is
+   procedure Crear_Postres (Listap: in out Lista_Postres.Tlista) is
       Regi: R_Postre;
    begin
       Put(" Ingrese el nombre del postre que quiere añadir a la lista: ");
       Get_Line(Regi.Rname, Regi.Rlong);
       Skip_Line;
-      Insertar(Listan, Regi.Rname);
       Cargar_Ingredientes(Regi.Ingredientes);
       Insertar (Listap, Regi);
    end Crear_Postres;
+   
+   
+   procedure Buscar_Receta (Listap: in out Lista_Postres.Tlista; nombre: in string20; long: in natural) is
+      Nombreaux: String20;
+      Longaux: Natural;
+   begin
+      Nombreaux:=Info(Listap).rname;
+      Longaux:= Info(Listap).rlong;
+      while Nombreaux(1..Longaux) /= nombre(1..long) or vacia(listap) loop
+         Listap:= Sig(Listap);
+         Nombreaux:=Info(Listap).Rname;
+         Longaux:= Info(Listap).Rlong; 
+      end loop;
+   end Buscar_Receta;
       
+
    procedure Imprimir(Lista: in out Lista_Ingredientes.Tlista) is
       Listaux: Lista_Ingredientes.Tlista:= Lista;
       Regi: R_ingrediente;
@@ -82,7 +97,7 @@ procedure Punto10tp6 is
    end Imprimir;
    
    
-   procedure buscar_imprimir (listan: in out lista_nombres.tlista; Listap: in out Lista_postres.Tlista) is
+   procedure buscar_imprimir (Listap: in out Lista_postres.Tlista) is
       Nombreaux1, nombreaux2: String20;
       Longaux1, longaux2: Natural;
       Listaux: Lista_Postres.Tlista:=Listap;
@@ -93,11 +108,7 @@ procedure Punto10tp6 is
       Get_Line(Nombreaux1, Longaux1);
       Nombreaux2:=Info(Listaux).rname;
       Longaux2:= Info(Listaux).rlong;
-      while Nombreaux1(1..Longaux1) /= nombreaux2(1..longaux2) or vacia(listaux) loop
-         Listaux:= Sig(Listaux);
-         Nombreaux2:=Info(Listaux).Rname;
-         Longaux2:= Info(Listaux).Rlong; 
-      end loop;
+      Buscar_Receta(Listaux, Nombreaux1, Longaux1);
       if Vacia(Listaux) then
          Put( " el postre no esta en la lista ");
       else
@@ -107,51 +118,52 @@ procedure Punto10tp6 is
       end if;
    end Buscar_Imprimir;
    
-   procedure Buscar_Receta (Listap: in out Lista_Postres.Tlista; nombre: in string20; long: in natural) is
-      Nombreaux: String20;
-      Longaux: Natural;
+
+   procedure impresionlista (Listap: in out Lista_postres.Tlista) is
+      Listauxp: Lista_Postres.tlista:= listap;
+      Listaing: Lista_Ingredientes.Tlista;
    begin
-      Nombreaux:=Info(Listap).rname;
-      Longaux:= Info(Listap).rlong;
-      while Nombreaux(1..Longaux) /= nombre(1..long) or vacia(listap) loop
-         Listap:= Sig(Listap);
-         Nombreaux:=Info(Listap).Rname;
-         Longaux:= Info(Listap).Rlong; 
-      end loop;
-      if Vacia(Listap) then
-         Put( " el postre no esta en la lista ");
-      end if;
-   end Buscar_Receta;
-      
+      Listaing:= Info(Listauxp).Ingredientes;
+      Imprimir(Listaing);
+   end impresionlista;
+ 
+
    procedure Insertar_Ingredientes (Listap: in out Lista_Postres.Tlista) is
       Rta: Character;
-      Regi: R_Ingrediente;
+      Regingredientes: R_Ingrediente;
+      Regipostre: R_Postre;
       Nombre: String20;
       Long:Natural;
       Listauxp: Lista_Postres.Tlista:= Listap;
-      Listaingredientes: Lista_Ingredientes.Tlista;
    begin
       Put(" cual receta queres modificar ");
       Get_Line(Nombre, Long);
       Buscar_Receta(Listauxp, Nombre, Long);
       Put(" ingrese los ingredientes que quiere agregar a la receta ");
       Rta:= 's';
-      Listaingredientes:=Info(Listauxp).Ingredientes;
+      Regipostre:= Info(Listauxp);
+      Suprimir(Listap, Regipostre);
       while Rta = 's' loop
-         Get_Line(Regi.Ingname, Regi.Ilong);
+         Get_Line(Regingredientes.Ingname, Regingredientes.Ilong);
          Skip_Line;
-         Insertar(listaingredientes, Regi);
+         Insertar(regipostre.ingredientes, Regingredientes);
          Put("  hay mas ingredientes? ");
          Get(Rta);
          Skip_Line;
       end loop;
+      Insertar(Listap, Regipostre);
+      if not vacia(listauxp) then
+         Put(" la lista de ingredientes fue actualizada con exito ");
+         Impresionlista(Listap);
+      else
+         Put(" la lista no fue actualizada con exito :( ");
+      end if;
    end Insertar_Ingredientes;
-      
          
 begin
-   Crear_Postres (Listadenombres, Listadepostres);
-   Buscar_Imprimir(Listadenombres, Listadepostres);
+   Crear_Postres (Listadepostres);
+   Buscar_Imprimir(Listadepostres);
    Insertar_Ingredientes(Listadepostres);
-   Buscar_Imprimir(Listadenombres, Listadepostres);
+   Buscar_Imprimir(Listadepostres);
    
 end Punto10tp6;
