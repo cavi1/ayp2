@@ -14,7 +14,7 @@ package body Paqveccom is
       end loop;
    end escribir;
 
-   function Norma(V:in Tvec)return Telemento is
+   function Norma(V:in Tvec)return float is
       Acc:Telemento:=Accum;
    begin
       for I in Tindice'range loop

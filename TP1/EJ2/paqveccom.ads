@@ -5,7 +5,7 @@ generic
    with procedure Get(X:out Telemento);   with procedure Put(X:in Telemento);
    with function "*"(X,Y: Telemento) return Telemento;
    with function "+"(X,Y: Telemento) return Telemento;
-   with function Sqrt(X: Telemento) return Telemento;
+   with function Sqrt(X: Telemento) return float;
    with function ">"(X,Y: Telemento) return Boolean;
    with function "-"(x,y:tindice)return tindice;
 
