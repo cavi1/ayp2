@@ -37,7 +37,7 @@ procedure Punto10tp6 is
    package Lista_nombres is new Listaenlazadaordenada (string20, "<", ">");
    use Lista_Nombres;
    
-   Listadenombres: Lista_Nombres.Tlista;
+   Listadenombres: Lista_Nombres.Tlista; -- bastante al pedo lo cree pq no lo uso, pero capaz sirve para el tp final
 --------------------------------------------------------------------------------------   
 
    procedure Cargar_Ingredientes (lista: out lista_ingredientes.tlista) is
@@ -61,7 +61,7 @@ procedure Punto10tp6 is
    procedure Crear_Postres (listan: in out lista_nombres.tlista; Listap: in out Lista_Postres.Tlista) is
       Regi: R_Postre;
    begin
-      Put(" Ingrese el nombre del postre que quiere añadir a la lista: ");
+      Put(" Ingrese el nombre del postre que quiere aÃ±adir a la lista: ");
       Get_Line(Regi.Rname, Regi.Rlong);
       Skip_Line;
       Insertar(Listan, Regi.Rname);
