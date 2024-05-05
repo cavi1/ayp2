@@ -1,0 +1,68 @@
+V "GNAT Lib v3.15"
+A -gnatwu
+A -gnatX
+P
+R nnnvnnnnnnnnnnvnnnnnnnvnnnnnnnnnnvnnnnnnnnnvnnnnnnnn
+
+U listaenlazada%b	listaenlazada.adb	c174557a NE PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+
+U listaenlazada%s	listaenlazada.ads	615c15b3 EE NE PK GE
+
+D ada.ads		19941113050444 a0108083
+D a-uncdea.ads		19951215061606 5a774be9
+D listaenlazada.ads	20240502040836 615c15b3
+D listaenlazada.adb	20240502040836 fa5f0b20
+D system.ads		20020119124456 2f3d0cfb
+X 1 ada.ads
+18K9*Ada 21e8 4|1r6 4r26
+X 2 a-uncdea.ads
+22u15*Unchecked_Deallocation 4|1r10 4r30
+X 3 listaenlazada.ads
+2+9 Tdato 8r47 9r62 10r62 12r44 14r72 15r70 22r16 4|12r44 28r59 38r59 69r41
+. 88r67 101r67
+4k12*Listaenlazada 25l8 25e21 4|2b14 115l5 115t18
+5P12 Tlista 7r30 8r29 9r41 10r41 11r40 12r29 13r28 13r43 14r50 15r49 20c12
+. 23r15 4|4r60 6r27 12r26 13r12 28r38 29r18 38r38 39r15 40r12 58r37 59r12
+. 69r26 78r25 78r40 88r46 89r12 101r46 102r13 103r12
+6X7 Listavacia 4|43r16 74r16 81r16 96r16
+7V16 Vacia{boolean} 4|6b13 9l8 9t13 15r10 31r10 42r10 80r10 91r14
+7P23 Lista{5P12} 4|6b20 8r14
+8V16 Esta{boolean} 4|12b13 25l8 25t12
+8P22 Lista{5P12} 4|12b19 13r22 15r16
+8+37 Elemento{2+9} 4|12b34 19r27
+9U17 Insertar 4|28b14 36l8 36t16
+9P27 Lista{5P12} 4|28b24 31r17 32m10 34r25 34m41
+9+49 Elemento{2+9} 4|28b46 29r38
+10U17 Suprimir 4|38b14 56l8 56t16
+10P27 Lista{5P12} 4|38b24 39r24 42r17 50m13 50r21
+10+49 Elemento{2+9} 4|38b46 45r55
+11U17 Limpiar 4|58b14 66l8 66t15
+11P26 Lista{5P12} 4|58b23 59r20 61r13 62r17 63m10 63r17
+12V16 Info{2+9} 4|69b13 76l8 76t12
+12P22 Lista{5P12} 4|69b19 71r10 72r17
+13V16 Sig{5P12} 4|78b13 85l8 85t11
+13P21 Lista{5P12} 4|78b18 80r16 83r17
+14U17 Suprimirporfrente 4|88b14 98l8 98t25
+14P36 Lista{5P12} 4|88b33 89r21 91r21 92r21 93m10 93r18
+14+58 Elemento{2+9} 4|88b53 92m10
+15U17 Insertarporfinal 4|101b14 113l8 113t24
+15P35 Lista{5P12} 4|101b32 103r21 105m26 107r16
+15+57 Elemento{2+9} 4|101b54 102r33
+19R12 Tnodo 20r29 21c12 4|4r53 29r31 102r26
+21R12 Tnodo 24e17
+22+10 Info{2+9} 4|19r20 45r47 72r23 92r27
+23P10 Sig{5P12} 4|21r23 34r20 47r29 50r27 52r17 52r30 63r23 83r23 93r24 108r20
+. 109r23 111r14
+X 4 listaenlazada.adb
+4U14 Free 54r10 64r10 94r10
+13P7 Ptr{3|5P12} 18r16 19r16 21m13 21r19
+29P7 Nuevonodo{3|5P12} 32r18 34m10 34r49
+39P7 Actual{3|5P12} 45r16 45r40 46r19 47m13 47r22 52r23 54m16
+40P7 Ant{3|5P12} 46m13 49r13 52m13
+59P7 Temp{3|5P12} 62m10 64m16
+89P7 Ptr{3|5P12} 94m16
+102P7 Nodo{3|5P12} 105r34 111r20
+103P7 Ptr{3|5P12} 105r10 107m10 108r16 109m13 109r19 111m10
+

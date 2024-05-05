@@ -1,0 +1,116 @@
+V "GNAT Lib v3.15"
+M P W=b
+A -gnatwu
+A -gnatX
+P
+R nnvvnnnvnnnnnvvvvvvnnvvnnnnnnnnnnvnnnnnnnnnvnnnnvvnn
+
+U punto10tp6%b		punto10tp6.adb		9b82bffb NE SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W listaenlazada%s	listaenlazada.adb	listaenlazada.ali
+W listaenlazadaordenada%s  listaenlazadaordenada.adb  listaenlazadaordenada.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		19941113050444 a0108083
+D a-except.ads		20020130163438 a9cbab76
+D a-finali.ads		19971119163820 d4be2e87
+D a-filico.ads		19970305035844 83058640
+D a-ioexce.ads		19941113082010 d52e128a
+D a-stream.ads		20011115005110 dbe6acb4
+D a-tags.ads		20010330232918 bc792b69
+D a-textio.ads		20000826155840 98d7a37c
+D a-uncdea.ads		19951215061606 5a774be9
+D interfac.ads		19990427073020 6e859da6
+D i-cstrea.ads		20020108195218 4c49c040
+D listaenlazada.ads	20240502040836 615c15b3
+D listaenlazada.adb	20240502040836 fa5f0b20
+D listaenlazadaordenada.ads  20240429031756 be046497
+D listaenlazadaordenada.adb  20240502163420 e82e3663
+D punto10tp6.adb	20240505030554 dc0d6da3
+D system.ads		20020119124456 2f3d0cfb
+D s-exctab.ads		19990919135916 52f2ffc0
+D s-ficobl.ads		20001028010342 14416104
+D s-finimp.ads		19980221024008 ef65ab1e
+D s-finroo.ads		20001114142810 7e5e077b
+D s-parame.ads		20011130070724 315d7d16
+D s-secsta.ads		19990723182132 e384df23
+D s-soflin.ads		20011129200718 14059e84
+D s-stache.ads		20010607143152 8fc58eaa
+D s-stalib.ads		20010618061954 76713122
+D s-stoele.ads		19980907180906 c6bef0ad
+D s-stratt.ads		20001228190446 9fdf8f81
+D s-unstyp.ads		20011122181014 05ad3732
+D unchconv.ads		19960730064842 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 16|1r6 2r5
+X 8 a-textio.ads
+51K13*Text_IO 442e16 16|1r10 2r9
+169U14*New_Line 16|50r7 80r10 92r7
+172U14*Skip_Line 16|53r10 57r10 66r7
+209U14*Get 16|56r10
+245U14*Put 16|49r7 55r10 64r7 91r7 102r10 105r10
+252U14*Get_Line 16|52r10 65r7 93r7
+260U14*Put_Line 16|79r10
+X 12 listaenlazada.ads
+4k12*Listaenlazada 25e21 16|1r19 13r38
+5P12 Tlista 16|19r40[13] 43r65[13] 72r56[13] 73r35[13] 89r36[13]
+7V16 Vacia{boolean} 16|77r17[13]
+9U17 Insertar 16|54r10[13]
+11U17 Limpiar 16|47r7[13]
+14U17 Suprimirporfrente 16|78r10[13]
+X 14 listaenlazadaordenada.ads
+6k12*Listaenlazadaordenada 24e29 16|1r34 32r33 37r33
+7P12 Tlista 16|34r34[32] 40r34[37] 61r58[37] 61r95[32] 85r60[37] 85r97[32]
+. 88r30[32]
+9V16 Vacia{boolean} 16|96r67[32] 101r10[32]
+11U17 Insertar 16|67r7[37] 69r7[32]
+14V16 Info 16|94r19[32] 95r18[32] 98r22[32] 99r21[32] 104r21[32]
+15V16 Sig{7P12} 16|97r20[32]
+X 16 punto10tp6.adb
+3U11*Punto10tp6 115l5 115t15
+5A12 String15{string} 9r16
+6A12 String20{string} 17r14 37r56 86r31
+8R9 R_Ingrediente 11e14 13r52 44r13 74r13
+9a7 IngName{5A12} 52r24 79r25
+10i7 ILong{natural} 52r38 79r42
+13K12 Lista_Ingredientes 14r8 19r21 43r46 72r37 73r16 89r17
+16R9 R_postre 20e14 22r23 27r23 32r56 62r13
+17a7 RName{6A12} 24r16 24r26 29r16 29r26 65r21 67r29 94r33 98r36
+18i7 Rlong{natural} 65r33 95r32 99r35
+19P7 Ingredientes{12|5P12} 68r32 104r35
+22V13 "<"{boolean}
+22r18 X{16R9} 24r14
+22r20 Y{16R9} 24r24
+27V13 ">"{boolean}
+27r18 X{16R9} 29r14
+27r20 Y{16R9} 29r24
+32K12 Lista_postres 33r8 34r20 61r81 85r83 88r16
+34P4 Listadepostres{14|7P12} 113m35 114m36
+37K12 Lista_nombres 38r8 40r20 61r44 85r46
+40P4 Listadenombres{14|7P12} 113m19 114m20
+43U14 Cargar_Ingredientes 59l8 59t27 68r7
+43P35 lista{12|5P12} 47m15 54m19
+44r7 Regi{8R9} 52m19 52m33 54r26
+45e7 Rta{character} 48m7 51r13 56m14
+61U14 Crear_Postres 70l8 70t21 113r4
+61P29 listan{14|7P12} 67m16
+61P66 Listap{14|7P12} 69m17
+62r7 Regi{16R9} 65m16 65m28 67r24 68m27 69r25
+72U14 Imprimir 82l8 82t16 106r10
+72P23 Lista{12|5P12} 73r44
+73P7 Listaux{12|5P12} 77r23 78m28
+74r7 Regi{8R9} 78m36 79r20 79r37
+85U14 buscar_imprimir 108l8 108t23 114r4
+85P31 listan{14|7P12}
+85P68 Listap{14|7P12} 88r38
+86a7 Nombreaux1{6A12} 93m16 96r13
+86a19 nombreaux2{6A12} 94m7 96r40 98m10
+87i7 Longaux1{natural} 93m28 96r27
+87i17 longaux2{natural} 95m7 96r54 99m10
+88P7 Listaux{14|7P12} 94r24 95r23 96r73 97m10 97r24 98r27 99r26 101r16 104r26
+89P7 Listaing{12|5P12} 104m10 106m19
+
