@@ -150,7 +150,10 @@ function Vacia (Lista: in Tipolista) return Boolean is
          
       end Esta;
       
- 
+ procedure Crear (Lista: out Tipolista) is
+begin
+   Lista:=null;
+end Crear;
 
 end Listacircular;
 
