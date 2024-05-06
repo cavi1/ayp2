@@ -57,6 +57,14 @@ begin
    
 end Limpiar;
 
+
+
+procedure Crear (pila: out Tpila) is
+begin
+   pila:=null;
+end Crear;
+
+
 end Piladin;
 
 
