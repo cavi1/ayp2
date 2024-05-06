@@ -2,7 +2,8 @@ generic
    type Telemento is private;
    package Coladin is
       type Tcola is private;-- diferencia entre private y limited private: private se define en usar y limited private se define en el paquete mas abajo
-      colavacia: exception;
+      Colavacia: exception;
+      procedure crear(cola: out tcola);
       procedure limpiar(Cola: in out Tcola);
       procedure Insertar(Cola: in out Tcola; Nuevoelem: in Telemento);
       procedure Suprimir(Cola: in out Tcola; Sacaelem: out Telemento);

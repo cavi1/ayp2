@@ -75,6 +75,14 @@ package body Coladin is
          
       end Limpiar;
       
+      procedure Crear(Cola:out Tcola) is
+      begin
+         Cola.Frente:=null;
+         Cola.Final:=null;
+      end Crear;
+      
+        
+
 
    end Coladin;
    
