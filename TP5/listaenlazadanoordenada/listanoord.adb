@@ -206,11 +206,15 @@ package body Listanoord is -- implementación del paquete Lista
    end Suprimirporfrente;
    
    
+
+
+
+procedure Crear (Lista: out Tipolista) is
+begin
+   Lista:=null;
+end Crear;
+
 end Listanoord;
-
-
-
-
    
       
    

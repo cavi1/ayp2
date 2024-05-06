@@ -6,7 +6,7 @@ generic -- especificación del paquete de lista enlazada no ordenada
       
       type Tipolista is private;
       
-      --procedure Crear (Lista: out Tipolista); aparecía en el ppt pero no estaba hecha en el adb y creo q no tiene sentido porque el primer nodo de la lista se  crea al insertar el primer elemento
+      procedure Crear (Lista: out Tipolista); --aparecía en el ppt pero no estaba hecha en el adb y creo q no tiene sentido porque el primer nodo de la lista se  crea al insertar el primer elemento
       
       function Vacia (Lista: Tipolista) return Boolean;
       
