@@ -184,6 +184,16 @@ begin
          
    end Suprimir;
    
+
+procedure Crear (Lista: out Tipolista) is
+begin
+   Lista:=null;
+end Crear;
+
+
+
+
+   
 end listaord;
       
 

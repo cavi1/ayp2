@@ -7,8 +7,11 @@ generic
    
 package Listaord is
    
-   type Tipolista is private;
-            
+      type Tipolista is private;
+      
+      
+      procedure Crear (Lista: out Tipolista);
+              
       function Vacia (Lista: Tipolista) return Boolean;
       
       function Esta (Lista: Tipolista; Elem: Tipoelem) return Boolean;
