@@ -55,10 +55,26 @@ procedure Tp6ej5 is
    end Imprimolista;
    
    function Coincidencia (Lista1,Lista2:in Lista_Int.Tipolista) return Boolean is
+      Ptr1:Lista_Int.Tipolista:=Lista1;
+      Ptr2:Lista_Int.Tipolista:=Lista2;
+   begin
+      while not Vacia(Ptr1) and not Vacia(Ptr2) loop
+         if Info(Ptr1)/=Info(Ptr2) then
+            return false;
+         end if;
+         Ptr1:=Sig(Ptr1);
+         Ptr2:=Sig(Ptr2);
+      end loop;
       
-      
-    return true;     
+      if Vacia(Ptr1) and not Vacia(Ptr2) Then return False;
+      else if not Vacia(Ptr1) and Vacia(Ptr2) then return False;
+         else return True;
+         end if;
+      end if;
    end Coincidencia;
+   
+        
+     
    
    procedure Igualesconsecutivos (Listaext: in Lista_Ext.Tipolista; Listab:out Lista_Ext.Tipolista)is
       Ant:Lista_Ext.Tipolista:=Listaext;
@@ -68,9 +84,13 @@ procedure Tp6ej5 is
       limpiar(listaB);
       while not Vacia(Ptr) loop
          if Coincidencia(Info(Ant),Info(Ptr)) then
-            put_line("///////");
-            Insertar(Listab,info(Ptr));
+            
+            if not esta(listab,info(ant)) then
+               Insertar(Listab,Info(ant));
+            end if;
+            
          end if;
+         ant:=ptr;
          ptr:=sig(ptr);
       end loop;
    end Igualesconsecutivos;
@@ -93,8 +113,10 @@ procedure Tp6ej5 is
    
 begin
    Llenalistaexterna(List);
+   put_LINE("------------------");
    Imprimolista(List);
    Igualesconsecutivos(List,Listb);
+   put_LINE("------------------");
    imprimolista(listb);
    end tp6ej5;         
          
