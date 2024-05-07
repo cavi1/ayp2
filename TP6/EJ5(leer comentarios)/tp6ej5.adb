@@ -1,97 +1,101 @@
---Desarrollar el programa que realice lo siguiente:
---¨ Lea una lista A, cuyos nodos son una lista de caracteres.
---¨ A partir de A, generar una lista B que contenga sólo aquellos nodos de A que estén
---repetidos consecutivamente en ella.
-
-
---segun el ejemplo cada nodo de la lista A contiene una cadena de caracteres y si se repite alguna se debe copiar a la lista B
---ERROR QUE NO SE COMO ARREGLAR: si le doy al programa strings que comienzan con la misma letra (ej : abc a abc) y los escribo consecutivos, por mas que sean distintos, me los toma como iguales 
-with Listanoord, Ada.Text_Io, ada.Integer_Text_IO;
+with Listanoord, Ada.Text_Io, Ada.Integer_Text_Io;
 use ada.Text_IO, ada.Integer_Text_IO;
 
-procedure Tp6ej5 is
+procedure Tp6ej5 is 
    
-   cantpalabras:natural:=3;
-   longmax:natural:=5;
+   --generar una lista de lista de lista de caracteres
    
-   subtype Cadena is String(1..longmax);
+   package Lista_Int is new Listanoord(Character);
+   use Lista_Int;
    
-   type Tregi is record
-      Str:Cadena;
-      Long:Natural;
-   end record;
+   package Lista_Ext is new Listanoord(tipolista);
+   use Lista_Ext;
    
-   
-   package Listacomun is new Listanoord(tregi);
-   use Listacomun;
-   
-   procedure Llenaestruc(Lista:in out Tipolista) is
-   regaux:tregi;
+   procedure Llenalistachar(Listachar: out lista_int.Tipolista) is
+      Char:Character;
+      Cant:Positive;   
    begin
-      for I in 1..Cantpalabras loop
-         Put_line("ingrese palabra: ");
-         Get_Line(Regaux.Str,Regaux.Long);skip_line;
-         Insertar(Lista, Regaux);
+      Crear(Listachar);
+      limpiar(listachar);
+      Put_line("ingrese la cantidad de elementos de la lista interna de caracteres: ");
+      Get(Cant);Skip_Line;
+      for I in 1..Cant loop
+         Put_line("ingrese el caracter "&Integer'Image(I));
+         Get(Char);Skip_Line;
+         Insertar(Listachar,Char);
       end loop;
-   end Llenaestruc;
+   end Llenalistachar;
    
-   procedure Palarepe(Lista1: in Tipolista; Lista2: in out Tipolista) is
-      Ptr,ant:Tipolista:=Lista1;
-      Regaux:Tregi;
-      Hayrepe:Boolean:=False;
-      begin
-         Ptr:=Sig(Ptr);
-         
-         while not Vacia(Ptr) loop
-            
-            if Info(ant).Str=info(ptr).str then--si estan repetidos pero no son consecutivos no se agregan
-             
-               if not esta(lista2,info(ant)) then
-               Regaux.Str:=Info(ant).Str;
-               Regaux.Long:=Info(ant).Long;
-               Insertar(Lista2, Regaux);
-               Hayrepe:=True;
-               end if;                                  
-               
-            end if;
-            ant:=ptr;
-            Ptr:=Sig(Ptr);
-            
-         
-      end loop;
-      
-      if not Hayrepe then
-         Put("no hay string repetidos");
-      end if;
-      
-   end Palarepe;
-   
-   procedure Imprimolista(Lista: in Tipolista) is
-      Ptr:Tipolista:=Lista;
-      regaux:tregi;
+   procedure Llenalistaexterna(Listaext: out lista_ext.Tipolista) is
+      Listacharaux:Lista_Int.Tipolista;
+      Cant:Positive;
    begin
-      while not Vacia(Ptr) loop
-         Regaux.str:=Info(Ptr).Str;
-         Regaux.long:=Info(Ptr).Long;
-         Put(Regaux.Str(1..Regaux.Long));New_Line;
-         ptr:=sig(ptr);
+      Crear(Listaext);
+      limpiar(listaext);
+      Put_Line("ingrese la cantidad de elementos de la lista externa: ");
+      get(cant);skip_line;   
+      for I in 1..Cant loop
+         Llenalistachar(Listacharaux);
+         Insertar(Listaext,Listacharaux);
+      end loop;
+   end Llenalistaexterna;
+   
+   procedure Imprimolista(Listaext: in lista_ext.Tipolista) is
+      Ptrext:Lista_Ext.Tipolista:=Listaext;
+      ptrint:lista_int.tipolista;
+   begin
+      while not Vacia(Ptrext) loop
+         ptrint:=info(ptrext);
+         while not Vacia(Ptrint) loop          
+            Put(Info(Ptrint));New_Line;
+            ptrint:=sig(ptrint);
+         end loop;
+         Ptrext:=Sig(Ptrext);
       end loop;
    end Imprimolista;
    
-
-
-     
-   List, listrepe:Tipolista;
+   function Coincidencia (Lista1,Lista2:in Lista_Int.Tipolista) return Boolean is
+      
+      
+    return true;     
+   end Coincidencia;
+   
+   procedure Igualesconsecutivos (Listaext: in Lista_Ext.Tipolista; Listab:out Lista_Ext.Tipolista)is
+      Ant:Lista_Ext.Tipolista:=Listaext;
+      ptr:Lista_Ext.Tipolista:=sig(listaext);
+   begin
+      Crear(Listab);
+      limpiar(listaB);
+      while not Vacia(Ptr) loop
+         if Coincidencia(Info(Ant),Info(Ptr)) then
+            put_line("///////");
+            Insertar(Listab,info(Ptr));
+         end if;
+         ptr:=sig(ptr);
+      end loop;
+   end Igualesconsecutivos;
+    
+      
+                      
+        
          
+         
+
+         
+
+             
+
+
+
+
+   List:Lista_Ext.Tipolista;
+   listB:Lista_Ext.Tipolista;
    
 begin
-   Llenaestruc(List);
-   put_line("la lista original es: ");
+   Llenalistaexterna(List);
    Imprimolista(List);
-   Put_Line("los elementos repetidos son: ");
-   Palarepe(List,Listrepe);
-   imprimolista(listrepe);
-   
-end Tp6ej5;
+   Igualesconsecutivos(List,Listb);
+   imprimolista(listb);
+   end tp6ej5;         
+         
 
-   
