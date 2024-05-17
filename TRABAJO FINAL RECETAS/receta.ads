@@ -7,18 +7,18 @@ package Receta is
       subtype Cade_Nombre_Ingrediente is String(1..20);
       
 
-      type Tingrediente is record
+      type Tingrediente is record--cada ingrediente en particular es un registro que contiene el nombre del ingrediente y la cantidad en gramos
          Nombre_Ingrediente:Cade_Nombre_Ingrediente;
          Long_Nombre_Ingrediente:positive;
          Ingrediente_Cantidad:positive;      end record;
 
-      package Lista_Ingredientes is new Listanoord(Tingrediente);
+      package Lista_Ingredientes is new Listanoord(Tingrediente);--instanciacion de la lista de ingredientes
       use lista_ingredientes;
 
    
-      subtype Cade_nombre_receta is String(1..20);
+      subtype Cade_nombre_receta is String(1..20); --declaracion de largos de cadenas usados en el tipo receta
       subtype Cade_modo_preparacion is String(1..500);
-      subtype rDia is Positive range 1..31;
+      subtype rDia is Positive range 1..31;--declaracion de rangos para fechas
       subtype rMes is Positive range 1..12;
       subtype ranio is positive range 1995..2999;
 
@@ -42,7 +42,7 @@ package Receta is
          Lista_ingredientes:Tipolista;
          Modo_Preparacion:Cade_modo_preparacion;
          Long_Modo_Preparacion:Positive;         
-         tiempo_preparacion: positive;
+         tiempo_preparacion: positive;--tiempo de preparacion en minutos
          Fecha_Uso:tregi_fecha;
          --se podri­a agregar campos extra como por ejemplo si es un plato salado o dulce o si es un postre o si es sin tacc, vegano etc
       end record;
