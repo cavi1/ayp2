@@ -15,6 +15,7 @@ package body Receta is
          begin
          Put_Line("ingrese ingrediente: ");
          Get_Line(Regi.Nombre_Ingrediente,Regi.Long_Nombre_Ingrediente);
+         Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente):=to_upper(Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente));  
          Put_Line("ingrese cantidad del ingrediente en gramos: ");          
          Get(Regi.Ingrediente_Cantidad);Skip_Line;
          Insertar(Listaing,Regi);
@@ -95,11 +96,11 @@ end loop;
 end Cargofecha;
    
 
-
 procedure Creareceta(Receta:out Treceta) is
 begin
    Put_Line("ingrese el nombre de la receta: ");
-   Get_Line(receta.Nombre_Receta,receta.Long_Nombre_receta);
+   Get_Line(Receta.Nombre_Receta,Receta.Long_Nombre_Receta);
+   Receta.Nombre_Receta(1..Receta.Long_Nombre_Receta):=to_upper(Receta.Nombre_Receta(1..Receta.Long_Nombre_Receta));
    Put_Line("ingrese la lista de ingredientes: ");
    Creolistaingredientes(Receta.Lista_Ingredientes);
    Put_Line("ingrese el modo de preparacion de la receta: ");
@@ -111,15 +112,69 @@ begin
    put_line("la receta ha sido creada con exito");      
 end Creareceta;
 
-procedure Agregaingrediente(Receta:in out Treceta) is
+procedure Agregaingrediente(Receta:in out Treceta) is--ya se sabe de que receta se trata
+   Regi:Tingrediente;
+   rta:character;
 begin
-   null;
+   loop
+         
+         loop
+         begin
+         Put_Line("ingrese ingrediente a agregar: ");
+         Get_Line(Regi.Nombre_Ingrediente,Regi.Long_Nombre_Ingrediente);
+         Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente):=to_upper(Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente));  
+         Put_Line("ingrese cantidad del ingrediente en gramos: ");          
+         Get(Regi.Ingrediente_Cantidad);Skip_Line;
+         Insertar(receta.lista_ingredientes,Regi);
+         put_line("ingrediente insertado con exito ");      
+         exit; 
+                     
+         exception
+         when Data_Error =>
+               Put_Line("vuelva a ingresar los datos: "); New_Line;
+         end;
+         
+         end loop;
+      
+         
+         Put_Line("presione 'S' si desea seguir ingresando ingredientes: ");
+         Get(Rta); Skip_Line;
+         Rta:=To_Upper(Rta);
+         
+      exit when Rta='S';
+      
+   end loop;
+
 end Agregaingrediente;
 
-   
-procedure Eliminaingrediente(Receta:in out Treceta) is
+
+
+
+procedure Eliminaingrediente(Receta:in out Treceta) is--ya se sabe de que receta se trata
+   Ptr:Tipolista:=Receta.Lista_Ingredientes;
+   Regi:Tingrediente;
+   Ing:Cade_Nombre_Ingrediente;
+   Long:Positive;
+   encontrado:boolean:=false;
 begin
-   null;
+   loop
+   begin
+   Put_Line("ingrese el ingrediente a eliminar: ");
+   Get_Line(Ing,Long);
+   while not Vacia(Ptr) loop 
+      if Info(Ptr).Nombre_Ingrediente(1..Long)=Ing(1..Long) then
+         Encontrado:=True;
+         Regi:=Info(Ptr);
+      end if;
+   exit when Encontrado;
+      end loop;
+   exception      
+      when Data_Error=>Put_line("el ingrediente no ha sido encontrado: ");new_line;
+   end;
+end loop;
+   
+        
+   
 end Eliminaingrediente;
 
 procedure Desplegareceta(Receta:in Treceta) is
@@ -128,6 +183,10 @@ begin
 end Desplegareceta;
 
 
+function Info_Nombre_Receta(Receta:Treceta) return cade_Nombre_Receta is
+begin
+   return receta.Nombre_Receta(1..receta.Long_Nombre_Receta);
+end Info_Nombre_Receta;
 
       
  end Receta;

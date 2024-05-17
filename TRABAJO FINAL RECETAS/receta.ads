@@ -25,9 +25,16 @@ package Receta is
       procedure Creareceta(Receta:out Treceta);--en realidad con esta se hace el archivo pero bueno igual va a servir cuando haya q armar el archivo seria basicamente copiar todo lo que conlleva esta funcion
       procedure Agregaingrediente(Receta:in out Treceta);--habria que agregar esto y consistir que el ingrediente no este repetido por ejemplo con una excepcion
       procedure Eliminaingrediente(Receta:in out Treceta);--habria que consistir que la lista de ingredientes no este vacía por ejemplo con una excepcion
-      procedure Desplegareceta(Receta:in Treceta);--en esta funcion uno puede elegir que ver de la receta o bien, ver todo
-      -- se podría tambien agregar una función info que devuelva el nombre de la receta por si se quisiera hacer una busqueda por cierto tipo de receta
-      -- se podría agregar una función que devuelva info en base a si la receta es salada o dulce o si es un postre o si es sin tacc, vegano etc (tambien para algún filtrado)
+      procedure Desplegareceta(Receta:in Treceta);
+      function Info_Nombre_Receta(Receta: Treceta) return cade_Nombre_Receta;
+         
+         
+         
+         
+         
+         --en esta funcion uno puede elegir que ver de la receta o bien, ver todo
+      -- se podri�a tambien agregar una funcion info que devuelva el nombre de la receta por si se quisiera hacer una busqueda por cierto tipo de receta
+      -- se podria agregar una funcion que devuelva info en base a si la receta es salada o dulce o si es un postre o si es sin tacc, vegano etc (tambien para algun filtrado)
       --depende de las funciones que se elijan en el recetario
       type Tregi_Fecha is record
          Dia:Rdia;
