@@ -148,8 +148,6 @@ begin
 end Agregaingrediente;
 
 
-
---precondicion: se supone que cada receta tiene al menos un ingrediente
 procedure Eliminaingrediente(Receta:in out Treceta) is--ya se sabe de que receta se trata
    Ptr:Tipolista;
    Ing:Cade_Nombre_Ingrediente;
@@ -166,7 +164,7 @@ begin
                 
       if Info(Ptr).Nombre_Ingrediente(1..Long)=Ing(1..Long) then
          Encontrado:=True;    
-         Suprimir(Receta.Lista_Ingredientes,info(ptr));--ya se que est·
+         Suprimir(Receta.Lista_Ingredientes,info(ptr));--ya se que est√°
          Put_Line("ingrediente eliminado con exito");                    
       end if;         
                          
@@ -192,6 +190,7 @@ ptr:tipolista:=listaing;
 begin
    while not Vacia(ptr) loop
       put(info(ptr).nombre_ingrediente(1..info(ptr).long_nombre_ingrediente));new_line;
+      put_line("cantidad: "&integer'image(info(ptr).cantidad)&"g");
    end loop;
 end Desplegaingredientes;
 
