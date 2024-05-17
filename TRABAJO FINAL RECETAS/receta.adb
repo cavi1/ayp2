@@ -122,7 +122,7 @@ begin
    null;
 end Eliminaingrediente;
 
-procedure Desplegareceta(Receta:in Treceta) is--muestra la receta y todo sobre ella
+procedure Desplegareceta(Receta:in Treceta) is
 begin
    null;
 end Desplegareceta;
