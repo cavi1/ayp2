@@ -22,11 +22,13 @@ package Receta is
       subtype rMes is Positive range 1..12;
       subtype ranio is positive range 1995..2999;
 
-      procedure Creareceta(Receta:out Treceta);
-      procedure Agregaingrediente(Receta:in out Treceta);
-      procedure Eliminaingrediente(Receta:in out Treceta);
-      procedure Desplegareceta(Receta:in Treceta);
-      
+      procedure Creareceta(Receta:out Treceta);--en realidad con esta se hace el archivo pero bueno igual va a servir cuando haya q armar el archivo seria basicamente copiar todo lo que conlleva esta funcion
+      procedure Agregaingrediente(Receta:in out Treceta);--habria que agregar esto y consistir que el ingrediente no este repetido por ejemplo con una excepcion
+      procedure Eliminaingrediente(Receta:in out Treceta);--habria que consistir que la lista de ingredientes no este vacía por ejemplo con una excepcion
+      procedure Desplegareceta(Receta:in Treceta);--en esta funcion uno puede elegir que ver de la receta o bien, ver todo
+      -- se podría tambien agregar una función info que devuelva el nombre de la receta por si se quisiera hacer una busqueda por cierto tipo de receta
+      -- se podría agregar una función que devuelva info en base a si la receta es salada o dulce o si es un postre o si es sin tacc, vegano etc (tambien para algún filtrado)
+      --depende de las funciones que se elijan en el recetario
       type Tregi_Fecha is record
          Dia:Rdia;
          Mes:Rmes;
@@ -42,6 +44,7 @@ package Receta is
          Long_Modo_Preparacion:Positive;         
          tiempo_preparacion: positive;
          Fecha_Uso:tregi_fecha;
+         --se podría agregar campos extra como por ejemplo si es un plato salado o dulce o si es un postre o si es sin tacc, vegano etc
       end record;
       
 end Receta;
