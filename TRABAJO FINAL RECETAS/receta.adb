@@ -149,37 +149,63 @@ end Agregaingrediente;
 
 
 
-
+--precondicion: se supone que cada receta tiene al menos un ingrediente
 procedure Eliminaingrediente(Receta:in out Treceta) is--ya se sabe de que receta se trata
-   Ptr:Tipolista:=Receta.Lista_Ingredientes;
-   Regi:Tingrediente;
+   Ptr:Tipolista;
    Ing:Cade_Nombre_Ingrediente;
    Long:Positive;
-   encontrado:boolean:=false;
+   Encontrado:Boolean:=False;
 begin
    loop
    begin
    Put_Line("ingrese el ingrediente a eliminar: ");
    Get_Line(Ing,Long);
-   while not Vacia(Ptr) loop 
+   ing(1..long):=to_upper(ing(1..long));  
+   ptr:=receta.lista_ingredientes;  
+      while not Vacia(Ptr) and not Encontrado loop
+                
       if Info(Ptr).Nombre_Ingrediente(1..Long)=Ing(1..Long) then
-         Encontrado:=True;
-         Regi:=Info(Ptr);
-      end if;
-   exit when Encontrado;
+         Encontrado:=True;    
+         Suprimir(Receta.Lista_Ingredientes,info(ptr));--ya se que está
+         Put_Line("ingrediente eliminado con exito");                    
+      end if;         
+                         
       end loop;
-   exception      
-      when Data_Error=>Put_line("el ingrediente no ha sido encontrado: ");new_line;
-   end;
+      
+      exit;
+      
+      exception      
+      when Data_Error=>Put_Line("error en el tipo de dato, vuelva a realizar el ingreso: ");New_Line;
+           encontrado:=false;
+      end;
+      
 end loop;
-   
-        
+if not Encontrado then
+   put_line("el ingrediente no ha sido encontrado");   
+end if;        
    
 end Eliminaingrediente;
 
+
+procedure Desplegaingredientes(Listaing:in Tipolista)is
+ptr:tipolista:=listaing;
+begin
+   while not Vacia(ptr) loop
+      put(info(ptr).nombre_ingrediente(1..info(ptr).long_nombre_ingrediente));new_line;
+   end loop;
+end Desplegaingredientes;
+
+
 procedure Desplegareceta(Receta:in Treceta) is
 begin
-   null;
+   Put_Line("Nombre de la receta: ");
+   Put(Receta.Nombre_Receta(1..receta.Long_Nombre_Receta));New_Line;
+   Put_Line("Sus ingredientes son: ");
+   Desplegaingredientes(Receta.Lista_Ingredientes);
+   Put_Line("modo de preparacion: ");
+   Put(Receta.Modo_Preparacion(1..Receta.Long_Modo_Preparacion));New_Line;
+   put_line("el tiempo de preparacion es de "& integer'image(receta.tiempo_preparacion)&" minutos");
+   put_line("su fecha de uso fue "&integer'image(receta.fecha_uso.dia)&"/"&integer'image(receta.fecha_uso.mes)&"/"&integer'image(receta.fecha_uso.anio));          
 end Desplegareceta;
 
 

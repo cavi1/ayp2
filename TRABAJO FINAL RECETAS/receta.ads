@@ -22,20 +22,13 @@ package Receta is
       subtype rMes is Positive range 1..12;
       subtype ranio is positive range 1995..2999;
 
-      procedure Creareceta(Receta:out Treceta);--en realidad con esta se hace el archivo pero bueno igual va a servir cuando haya q armar el archivo seria basicamente copiar todo lo que conlleva esta funcion
-      procedure Agregaingrediente(Receta:in out Treceta);--habria que agregar esto y consistir que el ingrediente no este repetido por ejemplo con una excepcion
-      procedure Eliminaingrediente(Receta:in out Treceta);--habria que consistir que la lista de ingredientes no este vac√≠a por ejemplo con una excepcion
-      procedure Desplegareceta(Receta:in Treceta);
-      function Info_Nombre_Receta(Receta: Treceta) return cade_Nombre_Receta;
+      procedure Creareceta(Receta:out Treceta);--procedimiento para crear la receta desde cero, va a ser necesario en el agregar receta del recetario
+      procedure Agregaingrediente(Receta:in out Treceta);--agrego ingredientes a una receta seleccionada en el recetario, todavia no esta hecha la consistencia de si hay ingredientes repetidos 
+      procedure Eliminaingrediente(Receta:in out Treceta);--el creareceta obliga a agregar al menos un ingrediente,por lo tanto al eliminar ingrediente, la lista nunca esta vacia
+      procedure Desplegareceta(Receta:in Treceta);--dispone en pantalla toda la informacion de una receta en particular
+      function Info_Nombre_Receta(Receta: Treceta) return cade_Nombre_Receta;--funcion que accede al nombre de una receta, es necesaria para buscar en el recetario
+      --segun se considere agregar mas filtros de busqueda habria que hacer funciones de acceso a otros campos    
          
-         
-         
-         
-         
-         --en esta funcion uno puede elegir que ver de la receta o bien, ver todo
-      -- se podri≠a tambien agregar una funcion info que devuelva el nombre de la receta por si se quisiera hacer una busqueda por cierto tipo de receta
-      -- se podria agregar una funcion que devuelva info en base a si la receta es salada o dulce o si es un postre o si es sin tacc, vegano etc (tambien para algun filtrado)
-      --depende de las funciones que se elijan en el recetario
       type Tregi_Fecha is record
          Dia:Rdia;
          Mes:Rmes;
@@ -51,7 +44,7 @@ package Receta is
          Long_Modo_Preparacion:Positive;         
          tiempo_preparacion: positive;
          Fecha_Uso:tregi_fecha;
-         --se podr√≠a agregar campos extra como por ejemplo si es un plato salado o dulce o si es un postre o si es sin tacc, vegano etc
+         --se podri≠a agregar campos extra como por ejemplo si es un plato salado o dulce o si es un postre o si es sin tacc, vegano etc
       end record;
       
 end Receta;
