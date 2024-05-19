@@ -51,7 +51,8 @@ package body Recetario is
       --put_line(info_nombre_receta(info(recetario_aux).receta));
       if Encontrado then
          Suprimir(Recetario, Info(Recetario_Aux));--aca hace mal las cosas, elimina uno de los elementos que no corresponde con el seleccionado...
-         put_line("eliminado...");      end if;
+         put_line("eliminado...");
+      end if;
       
       end Eliminar_Receta;
       
@@ -59,16 +60,20 @@ package body Recetario is
       Recetario_Aux: Trecetario:= Recetario;
       Encontrado: Boolean;
       Recetamasteraux: Trecetamaster;
+      Receta_M: Treceta;
       Nombre_R_M: Cade_Nombre_Receta;
-      Long_A_M: Positive;      Rta:Character;
+      Long_A_M: Positive;
+      Rta:Character;
    begin
       Put(" ingrese el nombre de la receta que quiere modificar ");
       Get_Line(Nombre_R_m, Long_A_m);
       Skip_Line;
       Encontrado:= False;
-      Buscar_Receta (Recetario_Aux, Nombre_R_m, Long_A_m, Encontrado);
+      Buscar_Receta (Recetario_Aux, Nombre_R_M, Long_A_M, Encontrado);
+      Put(" receta encontrada... ");
       if Encontrado then
-         Suprimir (Recetario_Aux, Recetamasteraux);
+         Recetamasteraux:=Info(Recetario_Aux);
+         Suprimir (Recetario_Aux, Info(Recetario_Aux));
          Put(" ingrese 'a' si quiere agregar un ingrediente a la lista, sino ingrese 'e' si quiere eliminar un ingrediente ");
          Get(Rta);skip_line;
          if Rta /= 'a' and Rta /= 'e' then
@@ -76,12 +81,18 @@ package body Recetario is
          else
             if Rta = 'a' then
                Agregaingrediente( Recetamasteraux.Receta );
+               Put(" ingrediente agregado.. ");
+               New_Line;
             else
                if Rta ='e' then
                   Eliminaingrediente ( Recetamasteraux.Receta );
+                  Put(" ingrediente eliminado.. ");
+                  New_Line;
                end if;
             end if;
          end if;
+         Insertar(Recetario_Aux, Recetamasteraux);
+         --Put(" reinsertado correctamente ");
       end if;
    end Modificar_Receta;
            
@@ -121,5 +132,4 @@ package body Recetario is
    
 
 
-      end Recetario;
-
+end Recetario;
