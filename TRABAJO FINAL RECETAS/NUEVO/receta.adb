@@ -2,10 +2,30 @@ with Ada.Text_Io, ada.Characters.Handling, ada.Integer_Text_IO;
 use ada.Text_IO, ada.Characters.Handling, ada.Integer_Text_IO;
 
 package body Receta is
-   
+ 
+
+
+function Ingredienterepetido(Listaing: tipolista;str:cade_nombre_ingrediente; long_str:positive) return Boolean is
+   Ptr:Tipolista:=Listaing;
+   resu:boolean;
+begin
+   resu:=false;
+   while not Vacia(Ptr) loop
+      if info(ptr).Nombre_Ingrediente(1..long_str)=Str(1..long_str) then
+         resu:=True;   
+      end if;
+         Ptr:=Sig(Ptr);
+   end loop;
+   return resu;
+end Ingredienterepetido;
+
+
+
+
    procedure Creolistaingredientes(Listaing:out Tipolista) is
       Regi:Tingrediente;
-      rta:character;
+      Rta:Character;
+      repe:exception;
    begin
       Crear(Listaing);
       Limpiar(Listaing);
@@ -16,6 +36,9 @@ package body Receta is
          Put_Line("ingrese ingrediente: ");
          Get_Line(Regi.Nombre_Ingrediente,Regi.Long_Nombre_Ingrediente);
          Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente):=to_upper(Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente));  
+         if Ingredienterepetido(listaing, Regi.Nombre_Ingrediente, Regi.Long_Nombre_Ingrediente) then 
+             raise repe;
+         end if; 
          Put_Line("ingrese cantidad del ingrediente en gramos: ");          
          Get(Regi.Ingrediente_Cantidad);Skip_Line;
          Insertar(Listaing,Regi);
@@ -23,6 +46,8 @@ package body Receta is
          exit; 
                      
          exception
+         when Repe =>
+               put_line("el ingrediente se encuentra repetido, vuelva a realizar el ingreso: ");skip_line;
          when Data_Error =>
                Put_Line("error en el tipo de dato vuelva a ingresar los datos: "); Skip_Line;
          when constraint_Error =>
@@ -123,19 +148,6 @@ begin
    put_line("la receta ha sido creada con exito");      
 end Creareceta;
 
-function Ingredienterepetido(Listaing: tipolista;str:cade_nombre_ingrediente; long_str:positive) return Boolean is
-   Ptr:Tipolista:=Listaing;
-   resu:boolean;
-begin
-   resu:=false;
-   while not Vacia(Ptr) loop
-      if info(ptr).Nombre_Ingrediente(1..long_str)=Str(1..long_str) then
-         resu:=True;
-         Ptr:=Sig(Ptr);
-      end if;
-   end loop;
-   return resu;
-end Ingredienterepetido;
 
 
 procedure Agregaingrediente(Receta:in out Treceta) is--ya se sabe de que receta se trata
@@ -150,10 +162,9 @@ begin
          begin
          Put_Line("ingrese ingrediente a agregar: ");
          Get_Line(Regi.Nombre_Ingrediente,Regi.Long_Nombre_Ingrediente);
-         Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente):=To_Upper(Regi.Nombre_Ingrediente(1..Regi.Long_Nombre_Ingrediente));
-         put("cacamate");   
-         if not Ingredienterepetido(Receta.Lista_Ingredientes, Regi.Nombre_Ingrediente, Regi.Long_Nombre_Ingrediente) then 
-              put_line("asdsadsadladl");
+         Regi.Nombre_Ingrediente:=To_Upper(Regi.Nombre_Ingrediente);  
+         if Ingredienterepetido(Receta.Lista_Ingredientes, Regi.Nombre_Ingrediente, Regi.Long_Nombre_Ingrediente) then 
+             raise repe;
          end if;   
          Put_Line("ingrese cantidad del ingrediente en gramos: ");          
          Get(Regi.Ingrediente_Cantidad);Skip_Line;

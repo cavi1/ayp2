@@ -112,6 +112,7 @@ package body Recetario is
          Put_Line("eliminado...");
       else
          raise Receta_Inexistente;      end if;
+     
       
       end Eliminar_Receta;
       
@@ -128,22 +129,22 @@ package body Recetario is
       Skip_Line;
       Encontrado:= False;
       Buscar_Receta (Recetario_Aux, Nombre_R_M, Long_A_M, Encontrado);
-      Put(" receta encontrada... ");
+      --Put(" receta encontrada... ");
       if Encontrado then
          Recetamasteraux:=Info(Recetario_Aux);
-         Suprimir (Recetario_Aux, Info(Recetario_Aux));
+         Suprimir(Recetario, Info(Recetario_Aux));
          Put(" ingrese 'a' si quiere agregar un ingrediente a la lista, sino ingrese 'e' si quiere eliminar un ingrediente ");
          Get(Rta);skip_line;
          --if Rta /= 'a' and Rta /= 'e' then
             --raise Data_Error;
          --else
          if Rta = 'a' then
-            Agregaingrediente( Recetamasteraux.Receta );
+            Agregaingrediente(Recetamasteraux.Receta);
             Put(" ingrediente agregado.. ");
             New_Line;
          else
             if Rta ='e' then
-               Eliminaingrediente (Recetamasteraux.Receta );
+               Eliminaingrediente(Recetamasteraux.Receta );
                Put(" ingrediente eliminado.. ");
                New_Line;
             end if;
@@ -152,13 +153,15 @@ package body Recetario is
       else
          raise Receta_Inexistente;
       end if;
+      
+   
    end Modificar_Receta;
            
    procedure Crear_Recetario (Recetario: in out Trecetario) is
   
    begin
       Crear (Recetario);
-      Put(" creando recetario...");
+      --Put(" creando recetario...");
       New_Line;
       Limpiar(Recetario);
    end Crear_Recetario;
