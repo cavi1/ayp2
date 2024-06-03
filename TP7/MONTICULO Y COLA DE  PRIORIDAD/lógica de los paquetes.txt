@@ -1,0 +1,6 @@
+el montículo consiste en proveer a una determinada estructura de las propiedades de forma y orden(en realidad se da por sentado que la forma ya la tiene).
+la cola de prioridad es una estructura que necesita del paquete montículo para funcionar.
+lo importante es entender que siempre se suprime por un criterio de prioridad sobre los elementos de un arreglo y se inserta por el final. 
+En el caso de un arreglo de enteros, el elemento con mayor prioridad va a ser el mayor de ellos
+por lo tanto al suprimir, este va a ser el elemento que va a salir del arreglo. El paquete de montículo se encarga de que al realizar tanto la 
+supresión como la inserción en la cola de prioridad, la propiedad de orden se mantenga, de modo que se pueda elegir la prioridad del elemento a insertar.
