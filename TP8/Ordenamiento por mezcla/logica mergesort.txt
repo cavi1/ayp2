@@ -1,0 +1,51 @@
+dado un arreglo desordenado, el mismo se ordena siguiendo el criterio "divide y vencerás"
+
+ejemplo:
+
+ordenar
+
+29 16 21 55 64 12 23 54 62 33 3 65 76 22 1
+
+divido en 2 el arreglo...
+
+29 16 21 55 64 12 23 54		62 33 3 65 76 22 1
+
+divido en 2 los subarreglos...
+
+29 16 21 55	64 12 23 54	62 33 3 65	76 22 1
+
+divido en 2 los sub sub arreglos
+
+29 16	 21 55		64 12	23 54		62 33	3 65	 	76 22   1
+
+divido en 2 los sub sub sub arreglos
+
+29	16	21	55	64	12	23	54	62	33	3	65	76	22	1
+
+mezclo de a pares(pasan a vector auxiliar ordenados)
+
+16 29	21 55 ..el resto sigue igual en este momento
+
+mezclo pares de pares
+
+16 21 29 55..el resto sigue igual en este momento
+
+aplico el mismo método a los siguientes 4 y queda...
+
+16 21 29 55 12 23 54 64.. la otra mitad todavia no se ordena
+
+ahora mezclo pares de pares de pares
+
+12 16 21 23 29 54 55 64 .. y quedó ordenada la primera mitad
+
+ahora aplico lo mismo que con la primera mitad pero con la segunda, y queda:
+
+12 16 21 23 29 54 55 64		1 3 22 33 62 65 76
+
+y hago una mezcla de esto y va a quedar ordenado
+
+
+
+
+DESVENTAJA DE ESTO: es poco eficiente en cuanto al uso de memoria porque usa un vector auxiliar.
+

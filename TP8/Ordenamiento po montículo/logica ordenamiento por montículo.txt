@@ -1,0 +1,102 @@
+ordena un arreglo empleando propiedades de un montículo
+este ordenamiento requiere obligatoriamente que el arreglo sea un montículo.
+
+ejemplo comenzado por un arreglo que todavía no es un montículo,
+por ende debo transformarlo en montículo:
+
+29 16 21 55 64 12 23 54 62 33 3 65 76 22 1
+
+divide el arreglo en 2 partes basandose en la prop que dice que 
+dado un arreglo que almacena n datos de un arbol binario, a partir de la posición n/2+1
+en adelante resultan ser todos nodos hoja.
+otra prop a tener en cuenta: dado un nodo, su hijo izq esta en posNodo*2 y el derecho en
+posNodo*2+1
+
+vector inicial queda dividido por el programa de la siguiente manera:
+
+29 16 21 55 64 12 23 | 54 62 33 3 65 76 22 1
+TIENEN HIJOS		SON NODOS HOJA
+
+a partir de esto, lo que se hace es verificar que para cada elemento que tenga hijos, se respete la
+propiedad de orden y va de atras para adelante
+
+entonces empieza por el 23 (posicion 7)
+
+29 16 21 55 64 12 23 | 54 62 33 3 65 76 22 1
+
+hijo izquierdo =  v(7*2)=22		en este caso se respeta la prop de orden
+hijo derecho = v(7*2+1)=1		para el subarbol del 23.
+
+posicion 6
+
+no se respeta, se intercambia por el mayor de sus hijos(es siempre por el mayor)
+
+29 16 21 55 64 76 23 | 54 62 33 3 65 12 22 1
+
+posicion 5 se respeta, no hay cambio.
+
+posicion 4: no se respeta, se intercambia
+
+29 16 21 62 64 76 23 | 54 55 33 3 65 12 22 1
+
+posicion 3: no  se respeta, se intercambia
+
+29 16 76 62 64 21 23 | 54 55 33 3 65 12 22 1 pero ojo, todavia tiene hijos, y todavía no se respeta
+
+hay que hacer un intercambio de nuevo, se le llama doble intercambio
+
+29 16 76 62 64 65 23 | 54 55 33 3 21 12 22 1 ahora quedo acomodado 
+
+posicion 2: no se respeta, se intercambia:
+
+29 64 76 62 16 65 23 | 54 55 33 3 21 12 22 1 no se respeta, sigo acomodando
+
+29 64 76 62 33 65 23 | 54 55 16 3 21 12 22 1 ahora si
+
+posicion 1: no se respeta
+
+76 64 29 62 33 65 23 | 54 55 16 3 21 12 22 1 no se respeta, sigo
+
+76 64 65 62 33 29 23 | 54 55 16 3 21 12 22 1 ahora si
+
+AHORA ES UN MONTÍCULO, Y LE PUEDO APLICAR EL ORDENAMIENTO
+
+el proceso es el siguiente: 
+
+intercambio el primer elemento con el último:
+
+1 64 65 62 33 29 23 | 54 55 16 3 21 12 22 76 
+
+decremento la posición del último elemento, esto es sinónimo de bloquear el último elemento
+ya no se va a mover de ahí, y como se puede apreciar, quedó acomodado.
+
+y aplico una restauración abajo de los elementos restantes que es el algoritmo que se usó antes
+para construir el montículo, pero esta vez empiezo por el nodo raíz (en este instante es el 1)
+
+primer intercambio ya que no respeta:
+65 64 1 62 33 29 23 | 54 55 16 3 21 12 22 76 
+doble intercambio ya que no respeta:
+65 64 29 62 33 1 23 | 54 55 16 3 21 12 22 76
+triple intercambio ya que no respeta: 
+65 64 29 62 33 21 23 | 54 55 16 3 1 12 22 76
+ahora ya es hoja, no puedo seguir cambiando.
+
+finaliza el primer llamado...
+
+segundo llamado:
+
+intercambio el primer elemento con el último(recordando que el ultimo no es literalmente el último, sinó que es el anterior 
+porque el último original se va bloqueando)
+
+22 64 1 62 33 29 23 | 54 55 16 3 21 12 65 76 
+
+ya se puede ir viendo la magia...es cuestión de repetir este proceso y la estructura
+terminará ordenada.
+
+
+
+
+
+
+	 
+
